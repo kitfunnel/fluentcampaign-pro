@@ -144,13 +144,13 @@ class WooSyncHelper
 
         $productIds = array_values(array_unique($productIds));
 
-        if($customer->user_id) {
+        if ($customer->user_id) {
             $user = get_user_by('ID', $customer->user_id);
         } else {
             $user = get_user_by('email', $customer->email);
         }
 
-        if($user) {
+        if ($user) {
             $subscriber = FluentCrmApi('contacts')->getContactByUserRef($user->ID);
         } else {
             $subscriber = FluentCrmApi('contacts')->getContact($customer->email);
@@ -229,16 +229,15 @@ class WooSyncHelper
         $contactRelation->syncItems($relationItems, true, true);
 
         return [
-            'relation'   => $contactRelation,
-            'subscriber' => $subscriber,
+            'relation'     => $contactRelation,
+            'subscriber'   => $subscriber,
             'orders_count' => count($processedOrderIds)
         ];
     }
 
-
     public static function getOrdersByDbCustomer(&$customer, $paymentStatuses = [])
     {
-        if(!$paymentStatuses) {
+        if (!$paymentStatuses) {
             $paymentStatuses = wc_get_is_paid_statuses();
         }
 
@@ -252,59 +251,43 @@ class WooSyncHelper
 
         $isMulti = count($multipleCustomers) > 1;
 
-        if($isMulti) {
+        if ($isMulti) {
             $recentCustomer = $multipleCustomers[0];
             $customerIds = [];
             foreach ($multipleCustomers as $multiCustomer) {
-                if($multiCustomer->user_id > 0) {
+                if ($multiCustomer->user_id > 0) {
                     $recentCustomer = $multiCustomer;
                 }
                 $customerIds[] = $multiCustomer->customer_id;
             }
         }
 
-        $args = [
-            'status'  => $paymentStatuses,
-            'limit'   => -1,
-            'orderby' => 'date',
-            'order'   => 'ASC'
-        ];
-
-        if(!$isMulti && $customer->user_id > 0) {
-            $args['customer_id'] = $customer->user_id;
-        } else {
-            $args['customer'] = $customer->email;
+        if ($wooOrders = WooDataHelper::getOrdersByEmail($customer->email, $paymentStatuses)) {
+            $customer = $recentCustomer;
+            return $wooOrders;
         }
 
-        try {
-            $orders = wc_get_orders($args);
-        } catch (\Exception $e) {
+        $paymentStatuses = array_map(function ($status) {
+            return 'wc-' . $status;
+        }, $paymentStatuses);
+
+        // fallback to the order stats here
+        $orderStats = fluentCrmDb()->table('wc_order_stats')
+            ->select(['order_id'])
+            ->groupBy('order_id')
+            ->whereIn('customer_id', $customerIds)
+            ->whereIn('status', $paymentStatuses)
+            ->get();
+
+        if (!$orderStats) {
             return [];
         }
 
-        if(!$orders) {
-            $paymentStatuses = array_map(function ($status) {
-                return 'wc-'.$status;
-            }, $paymentStatuses);
-
-            // fallback to the order stats here
-            $orderStats = fluentCrmDb()->table('wc_order_stats')
-                ->select(['order_id'])
-                ->groupBy('order_id')
-                ->whereIn('customer_id', $customerIds)
-                ->whereIn('status', $paymentStatuses)
-                ->get();
-
-            if(!$orderStats) {
-                return [];
-            }
-
-            $orders = [];
-            foreach ($orderStats as $stat) {
-                if ($order = wc_get_order($stat->order_id)) {
-                    if($order instanceof \Automattic\WooCommerce\Admin\Overrides\Order) {
-                        $orders[] = $order;
-                    }
+        $orders = [];
+        foreach ($orderStats as $stat) {
+            if ($order = wc_get_order($stat->order_id)) {
+                if ($order instanceof \Automattic\WooCommerce\Admin\Overrides\Order) {
+                    $orders[] = $order;
                 }
             }
         }

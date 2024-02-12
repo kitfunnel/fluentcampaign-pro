@@ -14,6 +14,8 @@ class SequenceTracker extends Model
 
     public static function boot()
     {
+        parent::boot();
+
         static::creating(function ($model) {
             $model->status = $model->status ?: 'active';
             $model->type = self::$type;

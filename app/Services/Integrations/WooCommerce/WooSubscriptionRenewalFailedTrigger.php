@@ -22,9 +22,9 @@ class WooSubscriptionRenewalFailedTrigger extends BaseTrigger
         return [
             'ribbon'      => 'subscription',
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
-            'label'       => __('Renewal payment failed', 'fluentcampaign-pro'),
+            'label'       => __('Renewal Payment Failed', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_refund',
-            'description' => __('This Automation will start when a payment fails for a subscription', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when a subscription payment fails', 'fluentcampaign-pro')
         ];
     }
 

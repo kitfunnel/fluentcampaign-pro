@@ -8,6 +8,7 @@ class SureCartInit
     {
         new SureCartPaymentSuccessTrigger();
         new SureCartPaymentRefundTrigger();
+        new SureCartPaymentSuccessBenchmark();
 
         add_action('surecart/purchase_created', function ($purchase) {
             if (!has_action('fluent_surecart_purchase_created_wrap')) {

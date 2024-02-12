@@ -23,7 +23,7 @@ class RCPMembershipExpireTrigger extends BaseTrigger
             'category'    => __('Restrict Content Pro', 'fluentcampaign-pro'),
             'label'       => __('Membership expired', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-rcp_membership_cancle',
-            'description' => __('This funnel will start when a membership has been expired', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a membership expires', 'fluentcampaign-pro')
         ];
     }
 

@@ -20,8 +20,8 @@ class TopicCompletedTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LearnDash', 'fluentcampaign-pro'),
-            'label'       => __('Completes a Topic', 'fluentcampaign-pro'),
-            'description' => __('This funnel will start when a user is completes a lesson topic', 'fluentcampaign-pro')
+            'label'       => __('Topic Completed', 'fluentcampaign-pro'),
+            'description' => __('This funnel runs when a student completes a lesson topic', 'fluentcampaign-pro')
         ];
     }
 

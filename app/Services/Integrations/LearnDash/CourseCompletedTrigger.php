@@ -20,9 +20,9 @@ class CourseCompletedTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LearnDash', 'fluentcampaign-pro'),
-            'label'       => __('Completes a Course', 'fluentcampaign-pro'),
+            'label'       => __('Course Completed', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-learndash_complete_course',
-            'description' => __('This Funnel will start when a student completes a course', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a student completes a course', 'fluentcampaign-pro')
         ];
     }
 

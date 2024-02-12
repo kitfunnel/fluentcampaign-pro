@@ -20,9 +20,9 @@ class LessonCompletedTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LearnDash', 'fluentcampaign-pro'),
-            'label'       => __('Completes a Lesson', 'fluentcampaign-pro'),
+            'label'       => __('Lesson Completed', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-learndash_complete_lesson',
-            'description' => __('This Funnel will start a student completes a lesson', 'fluentcampaign-pro')
+            'description' => __('This funnel runs a student completes a lesson', 'fluentcampaign-pro')
         ];
     }
 

@@ -26,7 +26,7 @@ class AutomationConditions
                     'label'             => __('Purchased Products', 'fluentcampaign-pro'),
                     'type'              => 'selections',
                     'component'         => 'product_selector',
-                    'cacheable'   => true,
+                    'cacheable'         => true,
                     'is_singular_value' => true,
                     'is_multiple'       => true,
                     'disabled'          => false
@@ -95,7 +95,7 @@ class AutomationConditions
                         'exist'     => 'Yes',
                         'not_exist' => 'No',
                     ],
-                    'disabled'    => $disabled
+                    'disabled'          => $disabled
                 ]
             ],
         ];
@@ -138,7 +138,7 @@ class AutomationConditions
                 $prop = $condition['data_key'];
                 $operator = $condition['operator'];
 
-                if(in_array($prop, $manualProps)) {
+                if (in_array($prop, $manualProps)) {
                     $isTrue = Helper::getSubscriptionLicenseProp($prop, $subscriber, $condition['data_value']);
                     if (($operator == 'in' && !$isTrue) || ($operator == 'not_in' && $isTrue)) {
                         return false;
@@ -170,7 +170,7 @@ class AutomationConditions
                     }
                 }
 
-                if(in_array($prop, $manualProps)) {
+                if (in_array($prop, $manualProps)) {
                     $isTrue = Helper::getSubscriptionLicenseProp($prop, $subscriber, $condition['data_value']);
                     if (($operator == 'in' && !$isTrue) || ($operator == 'not_in' && $isTrue)) {
                         return false;

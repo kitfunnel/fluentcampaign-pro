@@ -21,9 +21,9 @@ class CourseEnrollTrigger extends BaseTrigger
     {
         return [
             'category'    => __('TutorLMS', 'fluentcampaign-pro'),
-            'label'       => __('Enrollment in a course', 'fluentcampaign-pro'),
+            'label'       => __('Course Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-tutor_lms_enrollment_course',
-            'description' => __('This funnel will start when a student is enrolled in a course', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a student is enrolled in a course', 'fluentcampaign-pro')
         ];
     }
 

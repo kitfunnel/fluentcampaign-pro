@@ -4,8 +4,8 @@
 
 define('FLUENTCAMPAIGN', 'fluentcampaign');
 define('FLUENTCAMPAIGN_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('FLUENTCAMPAIGN_PLUGIN_VERSION', '2.8.33');
-define('FLUENTCAMPAIGN_CORE_MIN_VERSION', '2.8.33');
+define('FLUENTCAMPAIGN_PLUGIN_VERSION', '2.8.44');
+define('FLUENTCAMPAIGN_CORE_MIN_VERSION', '2.8.44');
 define('FLUENTCAMPAIGN_FRAMEWORK_VERSION', 3);
 
 spl_autoload_register(function ($class) {

@@ -22,7 +22,7 @@ class SureCartPaymentRefundTrigger extends BaseTrigger
         return [
             'category'    => 'SureCart',
             'label'       => __('SureCart - Order Revoked', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start once order will be revoked', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start when order will be revoked', 'fluentcampaign-pro'),
             'icon'        => 'el-icon-sold-out',
         ];
     }

@@ -21,9 +21,9 @@ class RCPMembershipTrigger extends BaseTrigger
     {
         return [
             'category'    => __('Restrict Content Pro', 'fluentcampaign-pro'),
-            'label'       => __('A member added to a membership level', 'fluentcampaign-pro'),
+            'label'       => __('Membership Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-rcp_membership_level',
-            'description' => __('This funnel will start when a member is added to a level for the first time', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a member is added to a membership level', 'fluentcampaign-pro')
         ];
     }
 

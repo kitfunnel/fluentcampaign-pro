@@ -19,6 +19,12 @@ add_filter('fluentcrm_currency_sign', function ($currencySign) {
     return \FluentCampaign\App\Services\Commerce\Commerce::getDefaultCurrencySign($currencySign);
 }, 10, 2);
 
+
+add_filter('fluent_crm/contact_lifetime_value', function ($value, $contact) {
+    return \FluentCampaign\App\Services\Commerce\Commerce::getLifetimeValue($value, $contact);
+}, 10, 2);
+
+
 if (defined('FL_BUILDER_VERSION')) {
     add_filter('fl_builder_subscribe_form_services', function ($services) {
         if (is_array($services)) {
@@ -44,10 +50,11 @@ add_filter('fluent_crm/dashboard_notices', function ($notices) {
     return $notices;
 });
 
-if(defined('WC_PLUGIN_FILE')) {
+if (defined('WC_PLUGIN_FILE')) {
     $app->addFilter('woocommerce_checkout_fields', 'FluentCampaign\App\Hooks\Handlers\IntegrationHandler@maybeFillUpWooCheckoutFields', 99, 1);
 }
 
 add_filter('fluent_crm/double_optin_options', function ($config, $subscriber) {
     return (new \FluentCampaign\App\Hooks\Handlers\Cleanup())->routingDoiRedirect($config, $subscriber);
 }, 10, 2);
+

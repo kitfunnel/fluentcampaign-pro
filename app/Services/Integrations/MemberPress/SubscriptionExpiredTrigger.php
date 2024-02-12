@@ -21,8 +21,8 @@ class SubscriptionExpiredTrigger extends BaseTrigger
     {
         return [
             'category'    => __('MemberPress', 'fluentcampaign-pro'),
-            'label'       => __('A Subscription expired', 'fluentcampaign-pro'),
-            'description' => __('This funnel will start when a subscription has been expired', 'fluentcampaign-pro')
+            'label'       => __('Subscription Expired', 'fluentcampaign-pro'),
+            'description' => __('This funnel runs when a subscription expires', 'fluentcampaign-pro')
         ];
     }
 
@@ -161,10 +161,6 @@ class SubscriptionExpiredTrigger extends BaseTrigger
         $levels = \MeprCptModel::all('MeprProduct');
         $formattedLevels = [];
         foreach ($levels as $level) {
-            if ($level->period_type == 'lifetime') {
-                continue;
-            }
-
             $formattedLevels[] = [
                 'id'    => strval($level->ID),
                 'title' => $level->post_title

@@ -12,7 +12,7 @@ class LatestPost
     {
         $defaultAtts = [
             'selectedPostType'     => 'post',
-            'selectedPostsPerPage' => '',
+            'selectedPostsPerPage' => '3',
             'selectedLayout'       => 'default',
             'showImage'            => true,
             'showMeta'             => true,

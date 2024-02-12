@@ -25,9 +25,9 @@ class MembershipEnrollTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LifterLMS', 'fluentcampaign-pro'),
-            'label'       => __('Enrollment in a Membership', 'fluentcampaign-pro'),
+            'label'       => __('Joined Membership', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-lifter_lms_membership',
-            'description' => __('This Funnel will start when a student has been enrolled in a membership level', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a student has been enrolled in a membership level', 'fluentcampaign-pro')
         ];
     }
 

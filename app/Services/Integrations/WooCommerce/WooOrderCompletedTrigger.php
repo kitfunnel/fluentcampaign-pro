@@ -23,7 +23,7 @@ class WooOrderCompletedTrigger extends BaseTrigger
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
             'label'       => __('Order Completed', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_order_complete',
-            'description' => __('This Funnel will start once new order has been marked as completed', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when an order is completed', 'fluentcampaign-pro')
         ];
     }
 

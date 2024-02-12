@@ -630,7 +630,9 @@ class DataExporter
         }
 
         update_post_meta($templateId, '_email_subject', $data['email_subject']);
-        update_post_meta($templateId, '_edit_type', $data['_edit_type']);
+        if($editType = Arr::get($data, '_edit_type')) {
+            update_post_meta($templateId, '_edit_type', $editType);
+        }
 
         if (isset($data['design_template'])) {
             update_post_meta($templateId, '_design_template', sanitize_text_field($data['design_template']));

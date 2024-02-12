@@ -5,6 +5,7 @@ namespace FluentCampaign\App\Hooks\Handlers;
 use FluentCrm\App\Models\Campaign;
 use FluentCrm\App\Models\Meta;
 use FluentCrm\App\Services\Helper;
+use FluentCrm\Framework\Support\Arr;
 
 class CampaignArchiveFront
 {
@@ -101,17 +102,35 @@ class CampaignArchiveFront
 
         if ($campaign->design_template == 'raw_html' || $campaign->design_template == 'raw_classic') {
             $emailBody = $campaign->email_body;
-
-            $emailBody = str_replace(['https://fonts.googleapis.com/css2', 'https://fonts.googleapis.com/css'], 'https://fonts.bunny.net/css', $emailBody);
-
         } else {
             $emailBody = do_blocks($campaign->email_body);
         }
+
+        $emailBody = str_replace(['https://fonts.googleapis.com/css2', 'https://fonts.googleapis.com/css'], 'https://fonts.bunny.net/css', $emailBody);
 
         if ($subscriber) {
             $emailBody = apply_filters('fluent_crm/parse_campaign_email_text', $emailBody, $subscriber);
             $subject = apply_filters('fluent_crm/parse_campaign_email_text', $subject, $subscriber);
         }
+
+        $templateConfig = wp_parse_args(Arr::get($campaign->settings, 'template_config', []), Helper::getTemplateConfig($campaign->design_template, false));
+
+        $templateData = [
+            'preHeader'   => '',
+            'email_body'  => $emailBody,
+            'footer_text' => '',
+            'config'      => $templateConfig
+        ];
+
+        $emailBody = apply_filters(
+            'fluent_crm/email-design-template-' . $campaign->design_template,
+            $emailBody,
+            $templateData,
+            $emailBody,
+            $subscriber
+        );
+
+        $emailBody = str_replace(['{{crm_global_email_footer}}', '{{crm_preheader_text}'], '', $emailBody);
 
         $newsletter = [
             'title'          => $subject,

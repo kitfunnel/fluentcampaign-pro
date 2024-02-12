@@ -4,6 +4,7 @@ namespace FluentCampaign\App\Hooks\Handlers;
 
 use FluentCampaign\App\Services\Funnel\Actions\AddActivityAction;
 use FluentCampaign\App\Services\Funnel\Actions\AddEmailSequenceAction;
+use FluentCampaign\App\Services\Funnel\Actions\AddEventTrackerAction;
 use FluentCampaign\App\Services\Funnel\Actions\ChangeUserRoleAction;
 use FluentCampaign\App\Services\Funnel\Actions\EndFunnel;
 use FluentCampaign\App\Services\Funnel\Actions\HTTPSendDataAction;
@@ -18,6 +19,7 @@ use FluentCampaign\App\Services\Funnel\Benchmarks\LinkClickBenchmark;
 use FluentCampaign\App\Services\Funnel\Conditions\FunnelABTesting;
 use FluentCampaign\App\Services\Funnel\Conditions\FunnelCondition;
 use FluentCampaign\App\Services\Funnel\Triggers\ContactBirthDayTrigger;
+use FluentCampaign\App\Services\Funnel\Triggers\TrackingEventRecordedTrigger;
 use FluentCampaign\App\Services\Funnel\Triggers\UserLoginTrigger;
 use FluentCampaign\App\Services\Integrations\Integrations;
 use FluentCrm\App\Models\Subscriber;
@@ -65,6 +67,7 @@ class IntegrationHandler
         new  HTTPSendDataAction();
         new  AddActivityAction();
         new UserRoleRemoveAction();
+        new AddEventTrackerAction();
     }
 
     private function initBenchmarks()
@@ -128,6 +131,7 @@ class IntegrationHandler
     {
         new UserLoginTrigger();
         new ContactBirthDayTrigger();
+        new TrackingEventRecordedTrigger();
     }
 
     public function initBirthDayFireHooks()

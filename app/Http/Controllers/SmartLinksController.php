@@ -36,6 +36,8 @@ class SmartLinksController extends Controller
                 'tags' => isset($actionLink->actions['remove_tags']) ? $actionLink->actions['remove_tags'] : [],
                 'lists' => isset($actionLink->actions['remove_lists']) ? $actionLink->actions['remove_lists'] : [],
             ];
+
+            $actionLink->auto_login = isset($actionLink->actions['auto_login']) ? $actionLink->actions['auto_login'] : 'no';
         }
 
         return [
@@ -61,6 +63,7 @@ class SmartLinksController extends Controller
 
         $link['actions']['remove_tags'] = Arr::get($link, 'detach_actions.tags', []);
         $link['actions']['remove_lists'] = Arr::get($link, 'detach_actions.lists', []);
+        $link['actions']['auto_login'] = Arr::get($link, 'auto_login', 'no');
 
         $createdLink = SmartLink::create($link);
 
@@ -81,6 +84,7 @@ class SmartLinksController extends Controller
 
         $link['actions']['remove_tags'] = Arr::get($link, 'detach_actions.tags', []);
         $link['actions']['remove_lists'] = Arr::get($link, 'detach_actions.lists', []);
+        $link['actions']['auto_login'] = Arr::get($link, 'auto_login', 'no');
 
         $existing = SmartLink::findOrFail($id);
 

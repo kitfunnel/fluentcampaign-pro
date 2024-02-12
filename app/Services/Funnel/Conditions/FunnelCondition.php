@@ -225,7 +225,7 @@ class FunnelCondition
                     $item['type'] = 'dates';
                     $item['date_type'] = 'date';
                     $item['value_format'] = 'yyyy-MM-dd';
-                } else if($item['type'] == 'date_time') {
+                } else if ($item['type'] == 'date_time') {
                     $item['type'] = 'dates';
                     $item['has_time'] = 'yes';
                     $item['date_type'] = 'datetime';
@@ -297,12 +297,13 @@ class FunnelCondition
                 return true;
             }
         }
+
         return false;
     }
 
     protected function assesConditions($conditions, $subscriber, $sequence, $funnelSubscriberId)
     {
-        $formattedGroups = $this->formatGroup($conditions);
+        $formattedGroups = FunnelConditionHelper::formatConditionGroups($conditions);
 
         foreach ($formattedGroups as $groupName => $group) {
             if ($groupName == 'subscriber') {
@@ -316,11 +317,15 @@ class FunnelCondition
                     return false;
                 }
             } else if ($groupName == 'segment') {
-                if (!$this->assessSegmentConditions($group, $subscriber)) {
+                if (!FunnelConditionHelper::assessSegmentConditions($group, $subscriber)) {
                     return false;
                 }
             } else if ($groupName == 'activities') {
-                if (!$this->assessActivities($group, $subscriber)) {
+                if (!FunnelConditionHelper::assessActivities($group, $subscriber)) {
+                    return false;
+                }
+            } else if ($groupName == 'event_tracking') {
+                if (!FunnelConditionHelper::assessEventTrackingConditions($group, $subscriber)) {
                     return false;
                 }
             } else if ($groupName == 'other') {
@@ -341,7 +346,6 @@ class FunnelCondition
         return true;
     }
 
-
     protected function formatGroup($conditions)
     {
         $groups = [];
@@ -360,54 +364,14 @@ class FunnelCondition
             $property = $filterItem['source'][1];
 
             $groups[$provider][] = [
-                'data_key'   => $property,
-                'operator'   => $filterItem['operator'],
-                'data_value' => $filterItem['value']
+                'data_key'    => $property,
+                'operator'    => $filterItem['operator'],
+                'data_value'  => $filterItem['value'],
+                'extra_value' => Arr::get($filterItem, 'extra_value')
             ];
         }
 
         return $groups;
-    }
-
-
-    protected function assessActivities($conditions, $subscriber)
-    {
-        $formattedInputs = [];
-        foreach ($conditions as $condition) {
-            $prop = $condition['data_key'];
-            $formattedInputs[$prop] = $subscriber->lastActivityDate($prop);
-        }
-
-        return ConditionAssessor::matchAllConditions($conditions, $formattedInputs);
-    }
-
-    protected function assessSegmentConditions($conditions, $subscriber)
-    {
-        foreach ($conditions as $condition) {
-            $prop = $condition['data_key'];
-            if ($prop == 'tags') {
-                $items = $subscriber->tags->pluck('id')->toArray();
-            } else if ($prop == 'lists') {
-                $items = $subscriber->lists->pluck('id')->toArray();
-            } else if ($prop == 'user_role') {
-                $items = [];
-                $user = $subscriber->getWpUser();
-                if ($user) {
-                    $items = array_values($user->roles);
-                }
-            } else {
-                return false;
-            }
-
-            $inputs = [];
-            $inputs[$prop] = $items;
-
-            if (!ConditionAssessor::assess($condition, $inputs)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
 }

@@ -24,7 +24,7 @@ class WooSubscriptionStartedTrigger extends BaseTrigger
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
             'label'       => __('Subscription activated', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_order_complete',
-            'description' => __('This Automation will start when a woo subscription starts or status changed to active', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when a WooCommerce subscription begins or its status changes to active.', 'fluentcampaign-pro')
         ];
     }
 

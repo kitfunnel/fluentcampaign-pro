@@ -39,7 +39,7 @@ class RecurringCampaignRunner
                     // it's today
                     $nextDateTime = date('Y-m-d', $currentTimeStamp) . ' ' . $time;
 
-                    if (strtotime($nextDateTime) - $currentTimeStamp  > $cutSeconds) {
+                    if (strtotime($nextDateTime) - $currentTimeStamp > $cutSeconds) {
                         return $nextDateTime; // it's after the 30 minutes
                     }
                 }
@@ -49,12 +49,17 @@ class RecurringCampaignRunner
             case 'monthly':
                 $selectedDay = Arr::get($schedulingSettings, 'day', '1');
                 $currentDay = date('j');
+
                 if ($selectedDay == $currentDay) {
                     // it's today
                     $nextDateTime = date('Y-m-d', $currentTimeStamp) . ' ' . $time;
                     if (strtotime($nextDateTime) - $currentTimeStamp > $cutSeconds) {
                         return $nextDateTime; // it's after the cut seconds
                     }
+                } else if ($currentDay < $selectedDay) {
+                    // add 0 if single digit
+                    $selectedDay = str_pad($selectedDay, 2, '0', STR_PAD_LEFT);
+                    return date('Y-m-'.$selectedDay, $currentTimeStamp) . ' ' . $time;
                 }
 
                 $nextMonth = strtotime("first day of next month", $currentTimeStamp);

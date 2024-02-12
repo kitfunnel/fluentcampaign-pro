@@ -75,7 +75,7 @@
             </td>
 
             <?php if ( get_the_post_thumbnail_url($post) && $atts['showImage'] == true) { ?>
-                <td width="220px" height="230px" valign="middle" style="padding: 35px 40px 30px 8px;">
+                <td class="fc_latest_post_img" width="220px" height="230px" valign="middle" style="padding: 35px 40px 30px 8px;">
                     <img width="220px" height="220px" style="border-radius: 4px;object-fit: cover; " src="<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>" alt="<?php echo esc_attr($post->post_title); ?>">
                 </td>
             <?php } ?>

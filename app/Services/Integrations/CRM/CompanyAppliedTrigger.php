@@ -16,7 +16,7 @@ class CompanyAppliedTrigger extends BaseTrigger
 	{
 		$this->triggerName = 'fluentcrm_contact_added_to_companies';
 		$this->actionArgNum = 2;
-		$this->priority = 20;
+		$this->priority = 30;
 
 		parent::__construct();
 	}

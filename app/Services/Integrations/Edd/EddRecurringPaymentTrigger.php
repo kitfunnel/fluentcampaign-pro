@@ -22,7 +22,7 @@ class EddRecurringPaymentTrigger extends BaseTrigger
         return [
             'category'    => __('Easy Digital Downloads', 'fluentcampaign-pro'),
             'label'       => __('Renewal Payment Received', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start once a Renewal Payment received for an active subscription', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start when a renewal payment is received for an active subscription', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-edd_new_order_success',
         ];
     }

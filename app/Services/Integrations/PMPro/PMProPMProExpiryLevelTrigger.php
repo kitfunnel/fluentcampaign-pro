@@ -1,17 +1,17 @@
 <?php
 
-namespace FluentCampaign\App\Services\Integrations\TutorLms;
+namespace FluentCampaign\App\Services\Integrations\PMPro;
 
 use FluentCrm\App\Services\Funnel\BaseTrigger;
 use FluentCrm\App\Services\Funnel\FunnelHelper;
 use FluentCrm\App\Services\Funnel\FunnelProcessor;
 use FluentCrm\Framework\Support\Arr;
 
-class CourseCompletedTrigger extends BaseTrigger
+class PMProPMProExpiryLevelTrigger extends BaseTrigger
 {
     public function __construct()
     {
-        $this->triggerName = 'tutor_course_complete_after';
+        $this->triggerName = 'pmpro_membership_post_membership_expiry';
         $this->priority = 12;
         $this->actionArgNum = 2;
         parent::__construct();
@@ -20,10 +20,10 @@ class CourseCompletedTrigger extends BaseTrigger
     public function getTrigger()
     {
         return [
-            'category'    => __('TutorLMS', 'fluentcampaign-pro'),
-            'label'       => __('Course Completed', 'fluentcampaign-pro'),
-            'icon'        => 'fc-icon-tutor_lms_complete_course',
-            'description' => __('This funnel runs when a student completes a Course', 'fluentcampaign-pro')
+            'category'    => __('Paid Memberships Pro', 'fluentcampaign-pro'),
+            'label'       => __('Membership Level Expired', 'fluentcampaign-pro'),
+	        'icon'        => 'fc-icon-membership_level_ex_pmp',
+            'description' => __('This funnel runs when a membership expires', 'fluentcampaign-pro')
         ];
     }
 
@@ -37,8 +37,8 @@ class CourseCompletedTrigger extends BaseTrigger
     public function getSettingsFields($funnel)
     {
         return [
-            'title'     => __('Student completes a Course in TutorLMS', 'fluentcampaign-pro'),
-            'sub_title' => __('This Funnel will start when a student completes a Course', 'fluentcampaign-pro'),
+            'title'     => __('Membership Level Expiration', 'fluentcampaign-pro'),
+            'sub_title' => __('This funnel will start when a membership has been expired for a user', 'fluentcampaign-pro'),
             'fields'    => [
                 'subscription_status'      => [
                     'type'        => 'option_selectors',
@@ -63,28 +63,22 @@ class CourseCompletedTrigger extends BaseTrigger
     public function getFunnelConditionDefaults($funnel)
     {
         return [
-            'update_type' => 'update', // skip_all_actions, skip_update_if_exist
-            'course_ids'  => []
+            'membership_ids' => [],
+            'run_multiple'   => 'no'
         ];
     }
 
     public function getConditionFields($funnel)
     {
         return [
-            'update_type' => [
-                'type'    => 'radio',
-                'label'   => __('If Contact Already Exist?', 'fluentcampaign-pro'),
-                'help'    => __('Please specify what will happen if the subscriber already exist in the database', 'fluentcampaign-pro'),
-                'options' => FunnelHelper::getUpdateOptions()
-            ],
-            'course_ids'  => [
+            'membership_ids' => [
                 'type'        => 'multi-select',
-                'label'       => __('Target Courses', 'fluentcampaign-pro'),
-                'help'        => __('Select for which Courses this automation will run', 'fluentcampaign-pro'),
-                'options'     => Helper::getCourses(),
-                'inline_help' => __('Keep it blank to run to any Course Enrollment', 'fluentcampaign-pro')
+                'label'       => __('Target Membership Levels', 'fluentcampaign-pro'),
+                'help'        => __('Select for which Membership Levels this automation will run', 'fluentcampaign-pro'),
+                'options'     => Helper::getMembershipLevels(),
+                'inline_help' => __('Keep it blank to run to any Level cancellation', 'fluentcampaign-pro')
             ],
-            'run_multiple'       => [
+            'run_multiple'   => [
                 'type'        => 'yes_no_check',
                 'label'       => '',
                 'check_label' => __('Restart the Automation Multiple times for a contact for this event. (Only enable if you want to restart automation for the same contact)', 'fluentcampaign-pro'),
@@ -95,22 +89,22 @@ class CourseCompletedTrigger extends BaseTrigger
 
     public function handle($funnel, $originalArgs)
     {
-        $courseId = $originalArgs[0];
-        $userId = $originalArgs[1];
+        $userId = intval($originalArgs[0]);
+        $levelId = $originalArgs[1];
 
-        if (!$userId) {
+        if (empty($levelId)) {
             return;
         }
 
         $subscriberData = FunnelHelper::prepareUserData($userId);
 
-        $subscriberData['source'] = __('TutorLMS', 'fluentcampaign-pro');
+        $subscriberData['source'] = 'PMPro';
 
         if (empty($subscriberData['email'])) {
             return;
         }
 
-        $willProcess = $this->isProcessable($funnel, $courseId, $subscriberData);
+        $willProcess = $this->isProcessable($funnel, $levelId, $subscriberData);
 
         $willProcess = apply_filters('fluentcrm_funnel_will_process_' . $this->triggerName, $willProcess, $funnel, $subscriberData, $originalArgs);
         if (!$willProcess) {
@@ -124,26 +118,23 @@ class CourseCompletedTrigger extends BaseTrigger
 
         (new FunnelProcessor())->startFunnelSequence($funnel, $subscriberData, [
             'source_trigger_name' => $this->triggerName,
-            'source_ref_id'       => $courseId
+            'source_ref_id'       => $levelId
         ]);
+
     }
 
-    private function isProcessable($funnel, $courseId, $subscriberData)
+    private function isProcessable($funnel, $membershipId, $subscriberData)
     {
         $conditions = $funnel->conditions;
-        // check update_type
-        $updateType = Arr::get($conditions, 'update_type');
-
-        $subscriber = FunnelHelper::getSubscriber($subscriberData['email']);
-        if ($subscriber && $updateType == 'skip_all_if_exist') {
-            return false;
-        }
-
 
         // check the products ids
-        if ($conditions['course_ids']) {
-            return in_array($courseId, $conditions['course_ids']);
+        if ($conditions['membership_ids']) {
+            if( !in_array($membershipId, $conditions['membership_ids']) ) {
+                return false;
+            }
         }
+
+        $subscriber = FunnelHelper::getSubscriber($subscriberData['email']);
 
         // check run_only_one
         if ($subscriber && FunnelHelper::ifAlreadyInFunnel($funnel->id, $subscriber->id)) {

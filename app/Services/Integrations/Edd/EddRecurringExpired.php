@@ -22,7 +22,7 @@ class EddRecurringExpired extends BaseTrigger
         return [
             'category'    => __('Easy Digital Downloads', 'fluentcampaign-pro'),
             'label'       => __('Recurring Subscription Expired', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start once a Recurring Subscription status changed to expired', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start when a recurring subscription gets expired', 'fluentcampaign-pro'),
             'icon'        => 'el-icon-circle-close'
         ];
     }

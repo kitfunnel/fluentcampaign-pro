@@ -21,9 +21,9 @@ class WishlistMembershipTrigger extends BaseTrigger
     {
         return [
             'category'    => __('Wishlist Member', 'fluentcampaign-pro'),
-            'label'       => __('A member added to a membership level', 'fluentcampaign-pro'),
+            'label'       => __('Membership Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-wishlist',
-            'description' => __('This funnel will start when a member is added to a level', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a member is added to a membership level', 'fluentcampaign-pro')
         ];
     }
 

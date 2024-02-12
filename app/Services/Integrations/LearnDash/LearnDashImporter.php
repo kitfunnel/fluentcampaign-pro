@@ -373,7 +373,7 @@ class LearnDashImporter extends BaseImporter
 
         $memberGroupsMaps = [];
         foreach ($config['member_groups_maps'] as $map) {
-            if (!absint($map['field_value']) || !absint($map['field_key'])) {
+            if (!absint($map['field_value']) && !absint($map['field_key'])) {
                 continue;
             }
 

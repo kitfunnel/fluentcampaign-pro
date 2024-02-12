@@ -98,7 +98,7 @@ class DeepIntegration
 
         $html = '';
 
-        if(Commerce::getCommerceProvider() != 'woo') {
+        if (Commerce::getCommerceProvider() != 'woo') {
             $blocks = $this->getCommerceStats($commerce);
 
             $html = '<div class="fc_payment_summary"><h3 class="history_title">' . __('Customer Summary', 'fluentcampaign-pro') . '</h3>';
@@ -111,7 +111,7 @@ class DeepIntegration
         }
 
         $html .= '<h3 class="history_title">' . __('Purchased Products', 'fluentcampaign-pro') . '</h3>';
-        $html .= '<div class="fc_history_widget"><ul class="fc_full_listed max_height_340">';
+        $html .= '<div class="fc_history_widget"><ul class="fc_full_listed max_height_550">';
         foreach ($commerce->items as $item) {
             $productName = Helper::getProductName($item->item_id, $item->item_sub_id, ' <span class="variation_name">', '</span>');
 
@@ -545,7 +545,7 @@ class DeepIntegration
         }
 
         $blocks[] = [
-            'title'        => __('Order Count (paid)', 'fluentcampaign-pro'),
+            'title'        => __('Order Count', 'fluentcampaign-pro'),
             'value'        => number_format_i18n($commerce->total_order_count) . ' ' . $aocIndicator,
             'key'          => 'order_count',
             'actual_value' => $commerce->total_order_count,
@@ -601,8 +601,12 @@ class DeepIntegration
         }
 
         if ($customer->user_id && $subscriber->user_id != $customer->user_id) {
-            $subscriber->user_id = $customer->user_id;
-            $subscriber->save();
+            $realUser = get_user_by('ID', $customer->user_id);
+
+            if ($realUser->user_email == $subscriber->email) {
+                $subscriber->user_id = $customer->user_id;
+                $subscriber->save();
+            }
         }
 
         $syncSettings = $this->getSyncSettings();

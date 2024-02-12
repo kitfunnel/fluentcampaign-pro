@@ -25,9 +25,9 @@ class CourseEnrollTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LifterLMS', 'fluentcampaign-pro'),
-            'label'       => __('Enrollment in a course', 'fluentcampaign-pro'),
+            'label'       => __('Course Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-lifter_lms_course_enrollment',
-            'description' => __('This funnel will start when a contact has been enrolled in a course', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a contact is enrolled in a course', 'fluentcampaign-pro')
         ];
     }
 

@@ -22,7 +22,7 @@ class EddPaymentSuccessTrigger extends BaseTrigger
         return [
             'category'    => __('Easy Digital Downloads', 'fluentcampaign-pro'),
             'label'       => __('Edd - New Order Success', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start once new order will be added as successful payment', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start once new order payment is successful', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-edd_new_order_success',
         ];
     }

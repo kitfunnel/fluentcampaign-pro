@@ -23,7 +23,7 @@ class RCPMembershipCancelTrigger extends BaseTrigger
             'category'    => __('Restrict Content Pro', 'fluentcampaign-pro'),
             'label'       => __('Membership cancelled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-rcp_membership_cancle',
-            'description' => __('This funnel will start when a membership has been cancelled', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a membership is cancelled', 'fluentcampaign-pro')
         ];
     }
 

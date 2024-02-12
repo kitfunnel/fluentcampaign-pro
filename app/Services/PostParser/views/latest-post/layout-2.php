@@ -10,7 +10,7 @@
     <tbody>
             <tr class="fc_latest_post_item_tr">
                 <?php if ( get_the_post_thumbnail_url($post) && $atts['showImage'] == true) { ?>
-                    <td width="220px" height="230px" valign="top" style="background: url('<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>') center no-repeat; background-size: cover;">
+                    <td class="fc_latest_post_img" width="220px" height="230px" valign="top" style="background: url(<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>) center no-repeat; background-size: cover;">
                     </td>
                 <?php } ?>
                 <td valign="middle" style="padding: 35px 40px 30px 40px;">

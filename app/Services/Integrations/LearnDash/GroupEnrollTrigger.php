@@ -20,9 +20,9 @@ class GroupEnrollTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LearnDash', 'fluentcampaign-pro'),
-            'label'       => __('Enrolls in a Group', 'fluentcampaign-pro'),
+            'label'       => __('Group Enrollmented', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-learndash_course_group',
-            'description' => __('This funnel will start when a user is enrolled in a group', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a user is enrolled in a group', 'fluentcampaign-pro')
         ];
     }
 

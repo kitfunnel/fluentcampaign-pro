@@ -20,9 +20,9 @@ class CourseEnrollTrigger extends BaseTrigger
     {
         return [
             'category'    => __('LearnDash', 'fluentcampaign-pro'),
-            'label'       => __('Enrolls in a Course', 'fluentcampaign-pro'),
+            'label'       => __('Course Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-learndash_enroll_course',
-            'description' => __('This funnel will start when a student is enrolled in a course', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a student is enrolled in a course', 'fluentcampaign-pro')
         ];
     }
 

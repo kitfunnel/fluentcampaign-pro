@@ -7,6 +7,7 @@
 (new \FluentCampaign\App\Hooks\Handlers\IntegrationHandler())->init();
 (new \FluentCampaign\App\Hooks\Handlers\CampaignArchiveFront())->register();
 (new \FluentCampaign\App\Hooks\Handlers\VisualEmailBuilderHandler())->register();
+(new \FluentCampaign\App\Hooks\Handlers\ExtendedSmartCodesHandler())->register();
 
 add_action('init', function () {
     (new \FluentCampaign\App\Hooks\Handlers\DynamicSegment())->init();

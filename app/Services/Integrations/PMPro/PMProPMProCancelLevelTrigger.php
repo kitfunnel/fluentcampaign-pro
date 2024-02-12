@@ -11,19 +11,19 @@ class PMProPMProCancelLevelTrigger extends BaseTrigger
 {
     public function __construct()
     {
-        $this->triggerName = 'pmpro_membership_post_membership_expiry';
+        $this->triggerName = 'fcrm/pmpro_after_change_membership_level';
         $this->priority = 12;
-        $this->actionArgNum = 2;
+        $this->actionArgNum = 3;
         parent::__construct();
     }
 
     public function getTrigger()
     {
         return [
-            'category'    => __('Paid Membership Pro', 'fluentcampaign-pro'),
-            'label'       => __('Membership Level Expiration', 'fluentcampaign-pro'),
-	        'icon'        => 'fc-icon-membership_level_ex_pmp',
-            'description' => __('This funnel will start when a membership has been expired for a user', 'fluentcampaign-pro')
+            'category'    => __('Paid Memberships Pro', 'fluentcampaign-pro'),
+            'label'       => __('Membership Level Cancelled', 'fluentcampaign-pro'),
+            'icon'        => 'fc-icon-membership_level_ex_pmp',
+            'description' => __('This funnel runs when a membership level is cancelled', 'fluentcampaign-pro')
         ];
     }
 
@@ -37,8 +37,8 @@ class PMProPMProCancelLevelTrigger extends BaseTrigger
     public function getSettingsFields($funnel)
     {
         return [
-            'title'     => __('Membership Level Expiration', 'fluentcampaign-pro'),
-            'sub_title' => __('This funnel will start when a membership has been expired for a user', 'fluentcampaign-pro'),
+            'title'     => __('Membership Level Cancelled', 'fluentcampaign-pro'),
+            'sub_title' => __('This funnel runs when a membership level is cancelled for a user', 'fluentcampaign-pro'),
             'fields'    => [
                 'subscription_status'      => [
                     'type'        => 'option_selectors',
@@ -89,8 +89,8 @@ class PMProPMProCancelLevelTrigger extends BaseTrigger
 
     public function handle($funnel, $originalArgs)
     {
-        $userId = intval($originalArgs[0]);
-        $levelId = $originalArgs[1];
+        $userId = intval($originalArgs[1]);
+        $levelId = $originalArgs[2];
 
         if (empty($levelId)) {
             return;
@@ -129,7 +129,7 @@ class PMProPMProCancelLevelTrigger extends BaseTrigger
 
         // check the products ids
         if ($conditions['membership_ids']) {
-            if( !in_array($membershipId, $conditions['membership_ids']) ) {
+            if (!in_array($membershipId, $conditions['membership_ids'])) {
                 return false;
             }
         }

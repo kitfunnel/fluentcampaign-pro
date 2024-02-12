@@ -20,10 +20,10 @@ class PMProPMProMembershipTrigger extends BaseTrigger
     public function getTrigger()
     {
         return [
-            'category'    => __('Paid Membership Pro', 'fluentcampaign-pro'),
-            'label'       => __('Membership Level assignment of a User', 'fluentcampaign-pro'),
+            'category'    => __('Paid Memberships Pro', 'fluentcampaign-pro'),
+            'label'       => __('Membership Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-paid_membership_pro_user_level',
-            'description' => __('This funnel will start when a user is assigned to specified membership levels', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a member is added to a membership level', 'fluentcampaign-pro')
         ];
     }
 

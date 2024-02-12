@@ -23,7 +23,7 @@ class WooOrderRefundedTrigger extends BaseTrigger
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
             'label'       => __('Order Refunded', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_refund',
-            'description' => __('This Automation will start once an order get refunded', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when an order is refunded', 'fluentcampaign-pro')
         ];
     }
 

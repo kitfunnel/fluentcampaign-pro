@@ -22,7 +22,7 @@ class WooOrderStatusChangeTrigger extends BaseTrigger
         return [
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
             'label'       => __('Order Status Changed', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start when a Order status will change from one state to another', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start when an order status changes', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-woo',
         ];
     }

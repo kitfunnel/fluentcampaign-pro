@@ -50,9 +50,15 @@ class Integrations
         // PaidMembership Pro
         if (defined('PMPRO_VERSION')) {
             new \FluentCampaign\App\Services\Integrations\PMPro\PMProPMProMembershipTrigger();
+            new \FluentCampaign\App\Services\Integrations\PMPro\PMProPMProExpiryLevelTrigger();
             new \FluentCampaign\App\Services\Integrations\PMPro\PMProPMProCancelLevelTrigger();
             new \FluentCampaign\App\Services\Integrations\PMPro\PMProImporter();
             (new \FluentCampaign\App\Services\Integrations\PMPro\AutomationConditions())->init();
+
+            add_action('pmpro_after_change_membership_level', function ($level_id, $user_id, $cancel_level) {
+                do_action('fcrm/pmpro_after_change_membership_level', $level_id, $user_id, $cancel_level);
+            }, 10, 3);
+
         }
 
         // WishlistMember
@@ -102,7 +108,7 @@ class Integrations
             (new \FluentCampaign\App\Services\Integrations\LearnPress\LearnPressInit())->init();
         }
 
-        if(defined('SURECART_PLUGIN_FILE')) {
+        if (defined('SURECART_PLUGIN_FILE')) {
             (new \FluentCampaign\App\Services\Integrations\SureCart\SureCartInit())->register();
         }
     }

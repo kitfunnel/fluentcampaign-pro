@@ -237,19 +237,38 @@ class Commerce
 
     public static function resetModuleData($module)
     {
-        if(!self::isEnabled($module)) {
+        if (!self::isEnabled($module)) {
             return false;
         }
 
         ContactRelationModel::provider($module)->delete();
         ContactRelationItemsModel::provider($module)->delete();
 
-        if(!ContactRelationModel::first()) {
+        if (!ContactRelationModel::first()) {
             global $wpdb;
             $wpdb->query("TRUNCATE TABLE {$wpdb->prefix}fc_contact_relations");
             $wpdb->query("TRUNCATE TABLE {$wpdb->prefix}fc_contact_relation_items");
         }
 
         return true;
+    }
+
+    public static function getLifetimeValue($value, $contact)
+    {
+        $provider = self::getCommerceProvider();
+
+        if (!$provider) {
+            return $value;
+        }
+
+        $relation = ContactRelationModel::provider($provider)
+            ->where('subscriber_id', $contact->id)
+            ->first();
+
+        if ($relation) {
+            return $relation->total_order_value;
+        }
+
+        return $value;
     }
 }

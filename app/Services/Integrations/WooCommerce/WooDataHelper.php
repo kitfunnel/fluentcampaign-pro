@@ -207,4 +207,95 @@ class WooDataHelper
             ->where('item_id', $productId)
             ->count();
     }
+
+    public static function getOrdersByEmail($email, $paymentStatuses = [])
+    {
+        $user = get_user_by('email', $email);
+
+        // check HPOS is enabled or not
+        if (get_option('woocommerce_custom_orders_table_enabled') === 'yes') {
+            // high performance order is enabled
+            if ($user) {
+                $hposOrders = fluentCrmDb()->table('wc_orders')
+                    ->select(['id'])
+                    ->where(function ($query) use ($user) {
+                        $query->where('customer_id', $user->ID)
+                            ->orWhere(function ($query) use ($user) {
+                                $query->where('billing_email', $user->user_email)
+                                    ->where('customer_id', 0);
+                            });
+                    })
+                    ->get();
+            } else {
+                $hposOrders = fluentCrmDb()->table('wc_orders')
+                    ->select(['id'])
+                    ->where('billing_email', $email)
+                    ->where('customer_id', 0)
+                    ->get();
+            }
+
+            if (!$hposOrders) {
+                return [];
+            }
+
+            $orders = [];
+            foreach ($hposOrders as $hposOrder) {
+                $order = wc_get_order($hposOrder->id);
+                if ($order) {
+                    if ($paymentStatuses && !in_array($order->get_status(), $paymentStatuses)) {
+                        continue;
+                    }
+                    $orders[$hposOrder->id] = $order;
+                }
+            }
+
+            ksort($orders);
+            return array_values($orders);
+        }
+
+        $orders = [];
+
+        // Get all orders by user id
+        $storeUseId = $user ? $user->ID : false;
+        if ($storeUseId) {
+            $userOrders = wc_get_orders([
+                'customer_id' => $storeUseId,
+                'limit'       => -1,
+            ]);
+
+            foreach ($userOrders as $order) {
+                if ($order) {
+                    if ($paymentStatuses && !in_array($order->get_status(), $paymentStatuses)) {
+                        continue;
+                    }
+                    $orders[$order->get_id()] = $order;
+                }
+            }
+        }
+
+        // get orders by billing email
+        $guestOrders = wc_get_orders([
+            'customer' => $email,
+            'limit'    => -1
+        ]);
+
+        foreach ($guestOrders as $order) {
+            if (!$order) {
+                continue;
+            }
+
+            $userId = $order->get_user_id();
+            if ($userId && $storeUseId != $userId) {
+                continue;
+            }
+            if ($paymentStatuses && !in_array($order->get_status(), $paymentStatuses)) {
+                continue;
+            }
+            $orders[$order->get_id()] = $order;
+        }
+
+        ksort($orders);
+
+        return array_values($orders);
+    }
 }

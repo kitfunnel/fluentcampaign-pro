@@ -22,9 +22,9 @@ class WooSubscriptionRenewalPaymentTrigger extends BaseTrigger
         return [
             'ribbon'      => 'subscription',
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
-            'label'       => __('Renewal payment received', 'fluentcampaign-pro'),
+            'label'       => __('Renewal Payment Received', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_order_complete',
-            'description' => __('This Automation will start when a recurring payment received  for a subscription', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when a recurring payment received for a subscription', 'fluentcampaign-pro')
         ];
     }
 

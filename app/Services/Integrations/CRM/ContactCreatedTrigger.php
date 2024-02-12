@@ -14,7 +14,7 @@ class ContactCreatedTrigger extends BaseTrigger
     {
         $this->triggerName = 'fluent_crm/contact_created';
         $this->actionArgNum = 2;
-        $this->priority = 20;
+        $this->priority = 25;
 
         parent::__construct();
     }

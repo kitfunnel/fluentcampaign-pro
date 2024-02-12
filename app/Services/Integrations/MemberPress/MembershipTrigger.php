@@ -21,9 +21,9 @@ class MembershipTrigger extends BaseTrigger
     {
         return [
             'category'    => __('MemberPress', 'fluentcampaign-pro'),
-            'label'       => __('A member added to a membership level', 'fluentcampaign-pro'),
+            'label'       => __('Membership Enrolled', 'fluentcampaign-pro'),
 	        'icon'        => 'fc-icon-memberpress_membership',
-            'description' => __('This funnel will start when a membership level get activated for a member', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a member is added to a membership level', 'fluentcampaign-pro')
         ];
     }
 

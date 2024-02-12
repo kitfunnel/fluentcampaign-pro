@@ -6,7 +6,7 @@ class Helper
 {
     public static function getMembershipLevels()
     {
-        $levels = \pmpro_getAllLevels(false, false);
+        $levels = \pmpro_getAllLevels(true, false);
         $formattedLevels = [];
         foreach ($levels as $level) {
             $formattedLevels[] = [

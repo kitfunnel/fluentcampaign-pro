@@ -3,6 +3,7 @@
 namespace FluentCampaign\App\Services\Funnel\Actions;
 
 use FluentCrm\App\Models\FunnelMetric;
+use FluentCrm\App\Models\Subscriber;
 use FluentCrm\App\Services\Funnel\BaseAction;
 use FluentCrm\App\Services\Funnel\FunnelHelper;
 use FluentCrm\App\Services\Libs\Parser\Parser;
@@ -159,6 +160,13 @@ class HTTPSendDataAction extends BaseAction
 
     public function handle($subscriber, $sequence, $funnelSubscriberId, $funnelMetric)
     {
+        // Renew the subscriber
+        $subscriber = Subscriber::find($subscriber->id);
+
+        if(!$subscriber) {
+            return false;
+        }
+
         $settings = $sequence->settings;
         $remoteUrl = $settings['remote_url'];
         if (!$remoteUrl || filter_var($remoteUrl, FILTER_VALIDATE_URL) === FALSE) {

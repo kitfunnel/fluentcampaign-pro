@@ -11,7 +11,7 @@
         <?php if ( get_the_post_thumbnail_url($post) && $atts['showImage'] == true) { ?>
             <tr>
                 <td width="100%" style="padding: 0 0 25px 0;">
-                    <img width="100%" height="300px" style="object-fit: cover;" src="<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>" alt="<?php echo esc_attr($post->post_title); ?>">
+                    <img src="<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>" alt="<?php echo esc_attr($post->post_title); ?>" />
                 </td>
             </tr>
         <?php } ?>

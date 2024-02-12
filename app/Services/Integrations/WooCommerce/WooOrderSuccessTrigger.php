@@ -24,7 +24,7 @@ class WooOrderSuccessTrigger extends BaseTrigger
         return [
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
             'label'       => __('New Order (Processing)', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start once new order has been placed as processing', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start once a new order will be added as processing', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_new_order',
         ];
     }

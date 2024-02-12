@@ -45,8 +45,8 @@ class AffiliateWPAffActiveTrigger extends BaseTrigger
     {
         return [
             'category'    => __('AffiliateWP', 'fluentcampaign-pro'),
-            'label'       => __('AffiliateWP - New Affiliate Approved/Active Register', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will be initiated when affiliate will be approved or register as direct approved', 'fluentcampaign-pro')
+            'label'       => __('New Affiliate Joined', 'fluentcampaign-pro'),
+            'description' => __('This funnel will be initiated when a new affiliate gets approved/registered directly', 'fluentcampaign-pro')
         ];
     }
 

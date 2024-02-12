@@ -34,6 +34,8 @@ class RecurringCampaign extends Model
 
     public static function boot()
     {
+        parent::boot();
+
         static::creating(function ($model) {
             $defaultTemplate = $model->design_template ? $model->design_template : Helper::getDefaultEmailTemplate();
 

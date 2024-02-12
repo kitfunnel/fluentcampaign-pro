@@ -21,9 +21,9 @@ class LessonCompletedTrigger extends BaseTrigger
     {
         return [
             'category'    => __('TutorLMS', 'fluentcampaign-pro'),
-            'label'       => __('Student completes a Lesson', 'fluentcampaign-pro'),
+            'label'       => __('Lesson Completed', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-tutor_lms_complete_course',
-            'description' => __('This Funnel will start a student completes a Lesson', 'fluentcampaign-pro')
+            'description' => __('This funnel runs when a student completes a Lesson', 'fluentcampaign-pro')
         ];
     }
 

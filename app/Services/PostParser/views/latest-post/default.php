@@ -10,7 +10,8 @@
     <tbody>
             <?php if ( get_the_post_thumbnail_url($post) && $atts['showImage'] == true) { ?>
                 <tr>
-                    <td width="100%" height="300px" style="background: url('<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>') center no-repeat; background-size: cover;">
+                    <td width="100%">
+                        <img src="<?php echo esc_url(get_the_post_thumbnail_url($post)); ?>" alt="<?php echo esc_attr($post->post_title); ?>" />
                     </td>
                 </tr>
             <?php } ?>

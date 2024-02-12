@@ -22,7 +22,7 @@ class EddLicenseExpiredTrigger extends BaseTrigger
         return [
             'category'    => __('Easy Digital Downloads', 'fluentcampaign-pro'),
             'label'       => __('License Expired', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start a license status get marked as expired', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when a license gets expired', 'fluentcampaign-pro')
         ];
     }
 

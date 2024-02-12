@@ -12,7 +12,7 @@ class ContactBirthDayTrigger extends BaseTrigger
     public function __construct()
     {
         $this->triggerName = 'fluentcrm_contact_birthday';
-        $this->priority = 21;
+        $this->priority = 25;
         $this->actionArgNum = 1;
         parent::__construct();
     }

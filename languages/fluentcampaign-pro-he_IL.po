@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FluentCRM Pro\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-20 17:24+0000\n"
-"PO-Revision-Date: 2023-09-05 12:20+0000\n"
+"PO-Revision-Date: 2024-02-06 14:32+0000\n"
 "Last-Translator: admin\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -25,7 +25,7 @@ msgstr "%d הודעות דוא\"ל נועדו לשלוח מחדש"
 #: app/Services/PostParser/views/latest-post/layout-4.php:26
 #: app/Services/PostParser/views/latest-post/layout-3.php:48
 #: app/Services/PostParser/views/latest-post/layout-2.php:52
-#: app/Services/PostParser/views/latest-post/default.php:30
+#: app/Services/PostParser/views/latest-post/default.php:31
 msgid "(no title)"
 msgstr ""
 
@@ -39,7 +39,7 @@ msgstr ""
 
 #: app/Http/Controllers/DynamicSegmentController.php:283
 #: app/Http/Controllers/SequenceController.php:97
-#: app/Http/Controllers/RecurringCampaignController.php:199
+#: app/Http/Controllers/RecurringCampaignController.php:208
 #: app/Http/Controllers/SequenceMailController.php:93
 msgid "[Duplicate] "
 msgstr ""
@@ -64,16 +64,12 @@ msgstr ""
 msgid "[FluentCRM] Remove Tags on group leave"
 msgstr ""
 
-#: app/Services/Integrations/RCP/RCPMembershipTrigger.php:24
 #: app/Services/Integrations/RCP/RCPMembershipTrigger.php:40
-#: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:24
 #: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:40
-#: app/Services/Integrations/MemberPress/MembershipTrigger.php:24
 #: app/Services/Integrations/MemberPress/MembershipTrigger.php:40
 msgid "A member added to a membership level"
 msgstr "חבר נוסף לרמת חברות"
 
-#: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:24
 #: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:39
 msgid "A Subscription expired"
 msgstr ""
@@ -113,6 +109,22 @@ msgstr ""
 
 #: app/Services/Funnel/Conditions/FunnelCondition.php:57
 msgid "Add Condition to check your contact's properties"
+msgstr ""
+
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:94
+msgid "Add Condition to check your event tracking properties"
+msgstr ""
+
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:27
+msgid "Add Event Tracking"
+msgstr ""
+
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:28
+msgid "Add Event Tracking for Contact"
+msgstr ""
+
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:42
+msgid "Add Event Tracking to Contact Profile"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/AddOrderNoteAction.php:22
@@ -169,6 +181,12 @@ msgstr "שורת כתובת 2"
 msgid "Admin"
 msgstr ""
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:84
+msgid ""
+"Advanced Event Tracking Conditions (Will check all tracking event for the "
+"contact)"
+msgstr ""
+
 #: app/Services/Integrations/AffiliateWP/DeepIntegration.php:67
 msgid "Affiliate ID"
 msgstr ""
@@ -182,10 +200,6 @@ msgstr ""
 #: app/Services/Integrations/AffiliateWP/DeepIntegration.php:174
 msgid "AffiliateWP"
 msgstr ""
-
-#: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:48
-msgid "AffiliateWP - New Affiliate Approved/Active Register"
-msgstr "AffiliateWP - הרשמה מאושרת / פעילה של שותפים חדשה"
 
 #: app/Services/Integrations/WooCommerce/WooImporter.php:157
 #: app/Services/Integrations/Edd/EddImporter.php:151
@@ -221,6 +235,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:54
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:83
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:52
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:52
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:52
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:52
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:53
@@ -246,8 +261,8 @@ msgstr ""
 msgid "An Automated double-optin email will be sent for new subscribers"
 msgstr "דוא\"ל אוטומטי עם כניסה אופטית יישלח למנויים חדשים"
 
-#: app/Http/Controllers/RecurringCampaignController.php:57
-#: app/Http/Controllers/RecurringCampaignController.php:135
+#: app/Http/Controllers/RecurringCampaignController.php:58
+#: app/Http/Controllers/RecurringCampaignController.php:144
 msgid ""
 "Another campaign with the same name already exist. Please provide a "
 "different name"
@@ -365,7 +380,7 @@ msgstr ""
 msgid "BuddyPress Groups"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:188
+#: app/Http/Controllers/RecurringCampaignController.php:197
 #, php-format
 msgid "Campaign status has been changed to %s"
 msgstr ""
@@ -472,21 +487,19 @@ msgstr ""
 msgid "Completed At"
 msgstr ""
 
-#: app/Services/Integrations/LearnDash/CourseCompletedTrigger.php:23
 #: app/Services/Integrations/LearnDash/CourseCompletedTrigger.php:39
 msgid "Completes a Course"
 msgstr "מסיים קורס"
 
-#: app/Services/Integrations/LearnDash/LessonCompletedTrigger.php:23
 #: app/Services/Integrations/LearnDash/LessonCompletedTrigger.php:39
 msgid "Completes a Lesson"
 msgstr "משלים שיעור"
 
-#: app/Services/Integrations/LearnDash/TopicCompletedTrigger.php:23
 #: app/Services/Integrations/LearnDash/TopicCompletedTrigger.php:38
 msgid "Completes a Topic"
 msgstr "משלים נושא"
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:89
 #: app/Services/Funnel/Conditions/FunnelCondition.php:53
 msgid "Condition"
 msgstr ""
@@ -540,6 +553,7 @@ msgstr "איש קשר נוסף בכל אחד מהתגיות שנבחרו"
 msgid "Contact Created"
 msgstr ""
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:88
 #: app/Services/Funnel/Conditions/FunnelCondition.php:52
 msgid "Contact Data"
 msgstr ""
@@ -583,6 +597,7 @@ msgid "Contact's Birthday"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessBenchmark.php:91
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:71
 #: app/Services/Integrations/Edd/EddOrderSuccessBenchmark.php:90
 #: app/Services/Integrations/Edd/EddSubscriptionActiveBenchmark.php:71
 #: app/Services/Funnel/Benchmarks/EmailSequenceCompletedBenchmark.php:61
@@ -613,10 +628,19 @@ msgstr "העתק קישור זה"
 msgid "Country"
 msgstr "מדינה"
 
+#: app/Services/Integrations/LifterLms/CourseCompletedTrigger.php:24
 #: app/Services/Integrations/LifterLms/AutomationConditions.php:41
+#: app/Services/Integrations/LearnDash/CourseCompletedTrigger.php:23
 #: app/Services/Integrations/LearnDash/AutomationConditions.php:44
+#: app/Services/Integrations/TutorLms/CourseCompletedTrigger.php:24
 #: app/Services/Integrations/TutorLms/AutomationConditions.php:30
 msgid "Course Completed"
+msgstr ""
+
+#: app/Services/Integrations/LifterLms/CourseEnrollTrigger.php:28
+#: app/Services/Integrations/LearnDash/CourseEnrollTrigger.php:23
+#: app/Services/Integrations/TutorLms/CourseEnrollTrigger.php:24
+msgid "Course Enrolled"
 msgstr ""
 
 #: app/Services/Integrations/TutorLms/AutomationConditions.php:22
@@ -625,6 +649,10 @@ msgstr ""
 
 #: app/Services/Integrations/LearnPress/LearnPressInit.php:92
 msgid "Course ID"
+msgstr ""
+
+#: app/Services/Integrations/LearnDash/CourseLeaveTrigger.php:24
+msgid "Course Left"
 msgstr ""
 
 #: app/Services/Integrations/LifterLms/LifterInit.php:127
@@ -676,7 +704,7 @@ msgstr "נוצר ב"
 msgid "Created at"
 msgstr "נוצר ב"
 
-#: app/Services/Integrations/Integrations.php:114
+#: app/Services/Integrations/Integrations.php:120
 #: app/Services/Integrations/CRM/RemoveFromCompanyTrigger.php:28
 #: app/Services/Integrations/CRM/ListAppliedTrigger.php:27
 #: app/Services/Integrations/CRM/ContactCreatedTrigger.php:25
@@ -685,11 +713,13 @@ msgstr "נוצר ב"
 #: app/Services/Integrations/CRM/RemoveFromListTrigger.php:28
 #: app/Services/Integrations/CRM/RemoveFromTagTrigger.php:28
 #: app/Services/Funnel/Triggers/ContactBirthDayTrigger.php:23
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:30
 #: app/Services/Funnel/Conditions/FunnelABTesting.php:25
 #: app/Services/Funnel/Actions/RemoveFromFunnelAction.php:22
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:25
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:26
 #: app/Services/Funnel/Actions/UpdateContactPropertyAction.php:22
 #: app/Services/Funnel/Actions/AddActivityAction.php:21
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:26
 #: app/Services/Funnel/Actions/EndFunnel.php:20
 msgid "CRM"
 msgstr ""
@@ -709,7 +739,7 @@ msgstr ""
 msgid "Current Range"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:103
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:104
 msgid "Custom Data"
 msgstr ""
 
@@ -744,15 +774,15 @@ msgstr ""
 msgid "Customer Summary"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:110
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:111
 msgid "Data Key"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:60
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:61
 msgid "Data Send Method"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:111
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:112
 msgid "Data Value"
 msgstr ""
 
@@ -854,15 +884,15 @@ msgstr "אימייל"
 msgid "Email Address is not valid"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:346
+#: app/Http/Controllers/RecurringCampaignController.php:355
 msgid "Email body has been successfully updated"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:337
+#: app/Http/Controllers/RecurringCampaignController.php:346
 msgid "Email body is required"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:121
+#: app/Http/Controllers/RecurringCampaignController.php:130
 msgid "Email data has been updated"
 msgstr ""
 
@@ -874,11 +904,11 @@ msgstr "דוא\"ל נשלח מחדש"
 msgid "Email has been triggered by Automation Funnel ID: "
 msgstr ""
 
-#: app/Hooks/Handlers/CampaignArchiveFront.php:21
+#: app/Hooks/Handlers/CampaignArchiveFront.php:22
 msgid "Email Newsletter Archive features is not enabled"
 msgstr ""
 
-#: app/Hooks/Handlers/CampaignArchiveFront.php:32
+#: app/Hooks/Handlers/CampaignArchiveFront.php:33
 msgid "Email Newsletter could not be found"
 msgstr ""
 
@@ -896,7 +926,7 @@ msgstr ""
 msgid "Email sequence successfully deleted"
 msgstr "רצף הדוא\"ל נמחק בהצלחה"
 
-#: app/Http/Controllers/RecurringCampaignController.php:319
+#: app/Http/Controllers/RecurringCampaignController.php:328
 #, php-format
 msgid "Email status has been changed to %s"
 msgstr ""
@@ -979,11 +1009,6 @@ msgstr ""
 msgid "Enrollment Groups"
 msgstr ""
 
-#: app/Services/Integrations/LifterLms/CourseEnrollTrigger.php:28
-#: app/Services/Integrations/TutorLms/CourseEnrollTrigger.php:24
-msgid "Enrollment in a course"
-msgstr "הרשמה לקורס"
-
 #: app/Services/Integrations/LifterLms/CourseEnrollTrigger.php:44
 msgid "Enrollment in a course in LifterLMS"
 msgstr "הרשמה לקורס ב- LifterLMS"
@@ -991,10 +1016,6 @@ msgstr "הרשמה לקורס ב- LifterLMS"
 #: app/Services/Integrations/TutorLms/CourseEnrollTrigger.php:40
 msgid "Enrollment in a course in TutorLMS"
 msgstr "הרשמה לקורס TutorLMS"
-
-#: app/Services/Integrations/LifterLms/MembershipEnrollTrigger.php:28
-msgid "Enrollment in a Membership"
-msgstr "הרשמה לחברות"
 
 #: app/Services/Integrations/LifterLms/MembershipEnrollTrigger.php:44
 msgid "Enrollment in a Membership in LifterLMS"
@@ -1023,12 +1044,10 @@ msgstr ""
 msgid "Enrollments"
 msgstr ""
 
-#: app/Services/Integrations/LearnDash/CourseEnrollTrigger.php:23
 #: app/Services/Integrations/LearnDash/CourseEnrollTrigger.php:41
 msgid "Enrolls in a Course"
 msgstr "נרשם לקורס"
 
-#: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:23
 #: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:39
 msgid "Enrolls in a Group"
 msgstr "נרשם לקבוצה"
@@ -1044,6 +1063,18 @@ msgstr ""
 #: app/Services/Funnel/Conditions/FunnelABTesting.php:27
 #: app/Services/Funnel/Conditions/FunnelABTesting.php:42
 msgid "Evenly split the contacts or choose how to distribute them"
+msgstr ""
+
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:43
+msgid "Event Tracking for Contact to the Contact Profile"
+msgstr ""
+
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:48
+msgid "Event Tracking Key"
+msgstr ""
+
+#: app/Services/Funnel/Actions/AddEventTrackerAction.php:55
+msgid "Event Tracking Title"
 msgstr ""
 
 #: app/Services/Integrations/Edd/AdvancedReport.php:72
@@ -1113,7 +1144,7 @@ msgstr ""
 msgid "FluentCRM Pro"
 msgstr "מערכת דיוור"
 
-#: app/Services/Integrations/WooCommerce/WooInit.php:149
+#: app/Services/Integrations/WooCommerce/WooInit.php:155
 #: app/Services/Integrations/Edd/EddInit.php:130
 msgid "FluentCRM Profile"
 msgstr "פרופיל FluentCRM"
@@ -1146,7 +1177,7 @@ msgstr "עבור איזה סוג רכישה אתה מעוניין להפעיל �
 msgid "From 2nd Purchase"
 msgstr "מהרכישה השנייה"
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:99
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:100
 msgid "Full Subscriber Data (Raw)"
 msgstr ""
 
@@ -1172,7 +1203,7 @@ msgstr ""
 msgid "Funnel Skipped because no user found with the email address"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:165
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:173
 msgid "Funnel Skipped because provided url is not valid"
 msgstr ""
 
@@ -1208,7 +1239,7 @@ msgstr ""
 msgid "Generate Password Automatically"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:68
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:69
 msgid "GET Method"
 msgstr ""
 
@@ -1225,6 +1256,10 @@ msgstr ""
 msgid "Gross Volume"
 msgstr ""
 
+#: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:23
+msgid "Group Enrollmented"
+msgstr ""
+
 #: app/Services/Integrations/BuddyPress/BBInit.php:106
 msgid "Group ID"
 msgstr ""
@@ -1233,11 +1268,11 @@ msgstr ""
 msgid "Group Name"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:139
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:140
 msgid "Header Key"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:140
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:141
 msgid "Header Value"
 msgstr ""
 
@@ -1311,6 +1346,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:105
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:63
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:92
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:85
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:85
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:93
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:94
@@ -1337,6 +1373,13 @@ msgid ""
 "If you enable, then it will restart the automation for a contact if the "
 "contact already in the automation. Otherwise, It will just skip if already "
 "exist"
+msgstr ""
+
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:100
+msgid ""
+"If you enable, then it will restart the automation for a contact if the "
+"contact already in the automation. Please note that, if the automation "
+"status is active it will not restart."
 msgstr ""
 
 #: app/Services/Funnel/Actions/UserRegistrationAction.php:63
@@ -1445,6 +1488,10 @@ msgstr ""
 msgid "Is guest?"
 msgstr ""
 
+#: app/Services/Integrations/LifterLms/MembershipEnrollTrigger.php:28
+msgid "Joined Membership"
+msgstr ""
+
 #: app/Http/Controllers/DynamicSegmentController.php:202
 #: app/Http/Controllers/DynamicSegmentController.php:208
 msgid "Keep days 0/Blank for disable"
@@ -1490,6 +1537,7 @@ msgstr ""
 msgid "Keep it blank to run to any Level Cancellation"
 msgstr ""
 
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:79
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:79
 msgid "Keep it blank to run to any Level cancellation"
 msgstr ""
@@ -1516,6 +1564,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderCompletedTrigger.php:82
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessBenchmark.php:61
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:84
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:56
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:87
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:88
 #: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:89
@@ -1665,9 +1714,14 @@ msgstr ""
 msgid "Leave empty to target any lesson of this course"
 msgstr "השאר ריק כדי למקד כל שיעור בקורס זה"
 
-#: app/Services/Integrations/LearnDash/CourseLeaveTrigger.php:24
 #: app/Services/Integrations/LearnDash/CourseLeaveTrigger.php:42
 msgid "Leave from a Course"
+msgstr ""
+
+#: app/Services/Integrations/LifterLms/LessonCompletedTrigger.php:28
+#: app/Services/Integrations/LearnDash/LessonCompletedTrigger.php:23
+#: app/Services/Integrations/TutorLms/LessonCompletedTrigger.php:24
+msgid "Lesson Completed"
 msgstr ""
 
 #: app/Services/Integrations/Edd/EddLicenseExpiredTrigger.php:24
@@ -1771,6 +1825,7 @@ msgstr "התאם את מצב הפתיחה והלחיצה"
 msgid "Match Type"
 msgstr "סוג התאמה"
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:90
 #: app/Services/Funnel/Conditions/FunnelCondition.php:54
 msgid "Match Value"
 msgstr ""
@@ -1789,6 +1844,13 @@ msgstr ""
 
 #: app/Services/Integrations/RCP/RCPMembershipCancelTrigger.php:24
 msgid "Membership cancelled"
+msgstr ""
+
+#: app/Services/Integrations/RCP/RCPMembershipTrigger.php:24
+#: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:24
+#: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:24
+#: app/Services/Integrations/MemberPress/MembershipTrigger.php:24
+msgid "Membership Enrolled"
 msgstr ""
 
 #: app/Services/Integrations/RCP/RCPMembershipExpireTrigger.php:24
@@ -1813,13 +1875,17 @@ msgstr ""
 msgid "Membership Level"
 msgstr ""
 
-#: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:24
-msgid "Membership Level assignment of a User"
-msgstr "הקצאת משתמש ברמת החברות"
-
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:24
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:40
+msgid "Membership Level Cancelled"
+msgstr ""
+
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:40
 msgid "Membership Level Expiration"
+msgstr ""
+
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:24
+msgid "Membership Level Expired"
 msgstr ""
 
 #: app/Services/Integrations/LifterLms/AdvancedReport.php:46
@@ -1836,6 +1902,14 @@ msgstr ""
 msgid "Meta Value"
 msgstr ""
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:60
+msgid "Minimum Event Count"
+msgstr ""
+
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:58
+msgid "Minimum Occurrence Count of the selected event"
+msgstr ""
+
 #: app/Services/Integrations/BuddyPress/BBInit.php:93
 #: app/Services/Integrations/BuddyPress/BBInit.php:149
 msgid "Moderator"
@@ -1848,6 +1922,10 @@ msgstr ""
 #: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:63
 msgid "New Affiliate Approved/Active Register"
 msgstr "רישום שותף חדש אושר / פעיל"
+
+#: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:48
+msgid "New Affiliate Joined"
+msgstr ""
 
 #: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:40
 msgid "New Edd Order (paid) has been places"
@@ -1865,7 +1943,7 @@ msgstr ""
 msgid "New Order Success in EDD"
 msgstr "סדר חדש בהצלחה ב- EDD"
 
-#: app/Hooks/Handlers/RecurringCampaignHandler.php:231
+#: app/Hooks/Handlers/RecurringCampaignHandler.php:232
 #, php-format
 msgid "New recurring email has been created in your site %s"
 msgstr ""
@@ -1922,11 +2000,11 @@ msgstr "שום פעולה נוספת לא תפעל ברגע שאיש קשר יג
 msgid "No groups found for this contact"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:128
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:129
 msgid "No Headers"
 msgstr ""
 
-#: app/Hooks/Handlers/CampaignArchiveFront.php:38
+#: app/Hooks/Handlers/CampaignArchiveFront.php:39
 msgid "No published email newsletter found"
 msgstr ""
 
@@ -1934,7 +2012,7 @@ msgstr ""
 msgid "No Subscribers found based on your selection"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:186
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:194
 msgid "No valid body data found"
 msgstr ""
 
@@ -1999,12 +2077,9 @@ msgstr ""
 msgid "Order Completed"
 msgstr ""
 
+#: app/Services/Integrations/WooCommerce/DeepIntegration.php:548
 #: app/Services/Integrations/Edd/DeepIntegration.php:242
 msgid "Order Count"
-msgstr ""
-
-#: app/Services/Integrations/WooCommerce/DeepIntegration.php:548
-msgid "Order Count (paid)"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/AddOrderNoteAction.php:53
@@ -2013,6 +2088,11 @@ msgstr ""
 
 #: app/Services/Integrations/WooCommerce/AddOrderNoteAction.php:58
 msgid "Order Note Type"
+msgstr ""
+
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:24
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:47
+msgid "Order Received in SureCart"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessBenchmark.php:25
@@ -2036,7 +2116,7 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:26
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:27
 msgid "Outgoing Webhook"
 msgstr ""
 
@@ -2058,10 +2138,14 @@ msgid ""
 "subscribed"
 msgstr "לקוחות חברים בתשלום בתשלום שנמצאים גם הם ברשימת אנשי הקשר כמנויים"
 
-#: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:23
 #: app/Services/Integrations/PMPro/AutomationConditions.php:19
-#: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:23
 msgid "Paid Membership Pro"
+msgstr ""
+
+#: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:23
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:23
+#: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:23
+msgid "Paid Memberships Pro"
 msgstr ""
 
 #: app/Services/Funnel/Actions/UserRegistrationAction.php:56
@@ -2115,11 +2199,11 @@ msgstr ""
 msgid "Please enable data sync first from FluentCRM"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:114
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:115
 msgid "Please map the data for custom sending data type"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:143
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:144
 msgid "Please map the data for request headers"
 msgstr ""
 
@@ -2155,6 +2239,12 @@ msgstr ""
 msgid "Please map your Product and associate FluentCRM Tags"
 msgstr ""
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:64
+msgid ""
+"Please note, this trigger will start if the contact is in subscribed status. "
+"Otherwise, it will skip this automation."
+msgstr ""
+
 #: app/Http/Controllers/DynamicSegmentController.php:257
 #: app/Http/Controllers/DynamicSegmentController.php:301
 msgid "Please provide segment title"
@@ -2168,7 +2258,7 @@ msgstr ""
 msgid "Please provide the url to where the contact will be redirected"
 msgstr "אנא ספק את כתובת האתר למקום אליו יופנה איש הקשר"
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:77
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:78
 msgid "Please provide valid URL in where you want to send the data"
 msgstr ""
 
@@ -2259,11 +2349,11 @@ msgid ""
 "subscription is expired"
 msgstr ""
 
-#: fluentcampaign-pro.php:30
+#: fluentcampaign-pro.php:31
 msgid "Please update FluentCRM to latest version"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:64
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:65
 msgid "POST Method"
 msgstr ""
 
@@ -2355,7 +2445,7 @@ msgstr ""
 msgid "Recurring (renew only)"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:266
+#: app/Http/Controllers/RecurringCampaignController.php:275
 msgid "Recurring Email campaign has been deleted"
 msgstr ""
 
@@ -2376,8 +2466,8 @@ msgstr ""
 msgid "Registration Date"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:75
 #: app/Services/Funnel/Actions/HTTPSendDataAction.php:76
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:77
 msgid "Remote URL"
 msgstr ""
 
@@ -2480,20 +2570,17 @@ msgid "Remove WP User Role"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:25
-msgid "Renewal payment failed"
+msgid "Renewal Payment Failed"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooProductAdmin.php:180
 msgid "Renewal Payment Failed Actions"
 msgstr ""
 
+#: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:25
 #: app/Services/Integrations/Edd/EddRecurringPaymentTrigger.php:24
 #: app/Services/Integrations/Edd/EddRecurringPaymentTrigger.php:40
 msgid "Renewal Payment Received"
-msgstr ""
-
-#: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:25
-msgid "Renewal payment received"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/AdvancedReport.php:76
@@ -2509,23 +2596,23 @@ msgstr ""
 msgid "Replace user role "
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:95
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:96
 msgid "Request Body"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:108
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:109
 msgid "Request Body Data"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:81
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:82
 msgid "Request Format"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:124
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:125
 msgid "Request Header"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:137
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:138
 msgid "Request Headers Data"
 msgstr ""
 
@@ -2545,6 +2632,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:104
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:62
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:91
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:84
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:84
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:92
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:93
@@ -2566,6 +2654,7 @@ msgstr ""
 #: app/Services/Integrations/MemberPress/MembershipTrigger.php:84
 #: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:83
 #: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:85
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:99
 #: app/Services/Funnel/Triggers/UserLoginTrigger.php:85
 msgid ""
 "Restart the Automation Multiple times for a contact for this event. (Only "
@@ -2788,6 +2877,7 @@ msgstr "בחר אילו שיעורים יפעל אוטומציה זו"
 #: app/Services/Integrations/RCP/RCPMembershipCancelTrigger.php:77
 #: app/Services/Integrations/RCP/RCPMembershipExpireTrigger.php:77
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:84
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:77
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:77
 #: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:77
 #: app/Services/Integrations/MemberPress/MembershipTrigger.php:77
@@ -2822,6 +2912,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderCompletedTrigger.php:81
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:80
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:83
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:55
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:86
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:87
 #: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:88
@@ -2930,6 +3021,7 @@ msgstr "בחר רצפים"
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:50
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:79
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:48
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:48
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:48
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:48
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:49
@@ -3027,7 +3119,7 @@ msgstr "בחר אילו רצפים יוסרו מאיש הקשר הזה"
 msgid "selected"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:220
+#: app/Http/Controllers/RecurringCampaignController.php:229
 msgid "Selected Campaign has been successfully duplicated"
 msgstr ""
 
@@ -3059,7 +3151,7 @@ msgstr ""
 msgid "Selected Sequences has been deleted permanently"
 msgstr ""
 
-#: app/Http/Controllers/SmartLinksController.php:100
+#: app/Http/Controllers/SmartLinksController.php:104
 msgid "Selected Smart Link has been deleted"
 msgstr "הקישור החכם שנבחר נמחק"
 
@@ -3109,11 +3201,11 @@ msgstr ""
 msgid "Send an Email from your existing campaign"
 msgstr "שלח אימייל מהקמפיין הקיים שלך"
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:89
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:90
 msgid "Send as Form Method"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:85
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:86
 msgid "Send as JSON format"
 msgstr ""
 
@@ -3125,18 +3217,18 @@ msgstr "שלח הודעות דוא\"ל אוטומטיות על סמך הגדרו
 msgid "Send Campaign Email"
 msgstr "שלח אימייל לקמפיין"
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:154
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:155
 msgid ""
 "Send Data as Background Process. (You may enable this if you have lots of "
 "tasks)"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:55
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:56
 msgid "Send Data to External Server"
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:27
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:56
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:28
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:57
 msgid "Send Data to external server via GET or POST Method"
 msgstr ""
 
@@ -3205,11 +3297,11 @@ msgstr ""
 msgid "Settings -> Integrations Settings -> WooCommerce"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:381
+#: app/Http/Controllers/RecurringCampaignController.php:390
 msgid "Settings has been successfully updated"
 msgstr ""
 
-#: app/Http/Controllers/RecurringCampaignController.php:156
+#: app/Http/Controllers/RecurringCampaignController.php:165
 msgid "Settings has been updated"
 msgstr ""
 
@@ -3237,15 +3329,15 @@ msgstr "האם להתאים גם את תנאי הפתיחה והלחיצה?"
 msgid "Signups"
 msgstr ""
 
-#: app/Http/Controllers/SmartLinksController.php:69
+#: app/Http/Controllers/SmartLinksController.php:72
 msgid "SmartLink has be created"
 msgstr "SmartLink נוצר"
 
-#: app/Http/Controllers/SmartLinksController.php:91
+#: app/Http/Controllers/SmartLinksController.php:95
 msgid "SmartLink has be updated"
 msgstr "SmartLink עודכן"
 
-#: app/Http/Controllers/SmartLinksController.php:50
+#: app/Http/Controllers/SmartLinksController.php:52
 msgid "SmartLinks module has been successfully activated"
 msgstr "מודול SmartLinks הופעל בהצלחה"
 
@@ -3306,11 +3398,6 @@ msgstr "מדינה"
 msgid "Status"
 msgstr "סטָטוּס"
 
-#: app/Services/Integrations/LifterLms/CourseCompletedTrigger.php:24
-#: app/Services/Integrations/TutorLms/CourseCompletedTrigger.php:24
-msgid "Student completes a Course"
-msgstr "התלמיד מסיים קורס"
-
 #: app/Services/Integrations/LifterLms/CourseCompletedTrigger.php:40
 msgid "Student completes a Course in LifterLMS"
 msgstr "הסטודנט משלים קורס ב- LifterLMS"
@@ -3318,11 +3405,6 @@ msgstr "הסטודנט משלים קורס ב- LifterLMS"
 #: app/Services/Integrations/TutorLms/CourseCompletedTrigger.php:40
 msgid "Student completes a Course in TutorLMS"
 msgstr "הסטודנט משלים קורס בחונכות LMS"
-
-#: app/Services/Integrations/LifterLms/LessonCompletedTrigger.php:28
-#: app/Services/Integrations/TutorLms/LessonCompletedTrigger.php:24
-msgid "Student completes a Lesson"
-msgstr "התלמיד משלים שיעור"
 
 #: app/Services/Integrations/LifterLms/LessonCompletedTrigger.php:44
 msgid "Student completes a Lesson in LifterLMS"
@@ -3358,6 +3440,10 @@ msgstr ""
 msgid "Subscription Expire Actions"
 msgstr ""
 
+#: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:24
+msgid "Subscription Expired"
+msgstr ""
+
 #: app/Services/Integrations/WooCommerce/AdvancedReport.php:55
 #: app/Services/Integrations/Edd/AdvancedReport.php:47
 msgid "Subscription Revenue (All)"
@@ -3376,6 +3462,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:47
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:49
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:47
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:47
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:47
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:47
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:48
@@ -3413,7 +3500,7 @@ msgstr ""
 msgid "Successful Purchase Actions"
 msgstr ""
 
-#: app/Services/Integrations/SureCart/SureCartInit.php:136
+#: app/Services/Integrations/SureCart/SureCartInit.php:137
 msgid "SureCart"
 msgstr ""
 
@@ -3429,7 +3516,7 @@ msgstr ""
 msgid "SureCart Order Revoke"
 msgstr ""
 
-#: app/Services/Integrations/SureCart/SureCartInit.php:135
+#: app/Services/Integrations/SureCart/SureCartInit.php:136
 msgid "SureCart Purchase History"
 msgstr ""
 
@@ -3525,6 +3612,10 @@ msgstr "קורס יעד"
 msgid "Target Courses"
 msgstr "קורסי יעד"
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:44
+msgid "Target Event Key"
+msgstr ""
+
 #: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:85
 msgid "Target Groups"
 msgstr "קבוצות יעד"
@@ -3543,6 +3634,7 @@ msgstr "שיעורי יעד"
 #: app/Services/Integrations/RCP/RCPMembershipCancelTrigger.php:76
 #: app/Services/Integrations/RCP/RCPMembershipExpireTrigger.php:76
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:83
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:76
 #: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:76
 #: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:76
 #: app/Services/Integrations/MemberPress/MembershipTrigger.php:76
@@ -3565,6 +3657,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:79
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:82
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:55
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:54
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:85
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:86
 #: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:87
@@ -3584,7 +3677,7 @@ msgstr "נושאי יעד"
 msgid "Targeted User Roles"
 msgstr ""
 
-#: app/Hooks/Handlers/DataExporter.php:652
+#: app/Hooks/Handlers/DataExporter.php:654
 msgid "Templates has been successfully imported"
 msgstr ""
 
@@ -3642,28 +3735,123 @@ msgstr ""
 msgid "This automation will be marked as completed in this point for a contact"
 msgstr "אוטומציה זו תסומן כמושלמת בנקודה זו עבור איש קשר"
 
-#: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:26
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:41
 msgid "This Automation will start once an order get refunded"
 msgstr ""
 
-#: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:27
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:72
 msgid "This Automation will start when a payment fails for a subscription"
 msgstr ""
 
-#: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:27
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:72
 msgid ""
 "This Automation will start when a recurring payment received  for a "
 "subscription"
 msgstr ""
 
-#: app/Services/Integrations/WooCommerce/WooSubscriptionStartedTrigger.php:27
 #: app/Services/Integrations/WooCommerce/WooSubscriptionStartedTrigger.php:72
 msgid ""
 "This Automation will start when a woo subscription starts or status changed "
 "to active"
+msgstr ""
+
+#: app/Services/Integrations/LearnDash/LessonCompletedTrigger.php:25
+msgid "This funnel runs a student completes a lesson"
+msgstr ""
+
+#: app/Services/Integrations/LifterLms/CourseEnrollTrigger.php:30
+msgid "This funnel runs when a contact is enrolled in a course"
+msgstr ""
+
+#: app/Services/Integrations/RCP/RCPMembershipTrigger.php:26
+#: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:26
+#: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:26
+#: app/Services/Integrations/MemberPress/MembershipTrigger.php:26
+msgid "This funnel runs when a member is added to a membership level"
+msgstr ""
+
+#: app/Services/Integrations/RCP/RCPMembershipExpireTrigger.php:26
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:26
+msgid "This funnel runs when a membership expires"
+msgstr ""
+
+#: app/Services/Integrations/RCP/RCPMembershipCancelTrigger.php:26
+msgid "This funnel runs when a membership is cancelled"
+msgstr ""
+
+#: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:26
+msgid "This funnel runs when a membership level is cancelled"
+msgstr ""
+
+#: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:41
+msgid "This funnel runs when a membership level is cancelled for a user"
+msgstr ""
+
+#: app/Services/Integrations/LifterLms/CourseCompletedTrigger.php:26
+#: app/Services/Integrations/TutorLms/CourseCompletedTrigger.php:26
+#, fuzzy
+#| msgid "This Funnel will start a student completes a Course"
+msgid "This funnel runs when a student completes a Course"
+msgstr "משפך זה יתחיל סטודנט מסיים קורס"
+
+#: app/Services/Integrations/LearnDash/CourseCompletedTrigger.php:25
+msgid "This funnel runs when a student completes a course"
+msgstr ""
+
+#: app/Services/Integrations/TutorLms/LessonCompletedTrigger.php:26
+msgid "This funnel runs when a student completes a Lesson"
+msgstr ""
+
+#: app/Services/Integrations/LifterLms/LessonCompletedTrigger.php:30
+#, fuzzy
+#| msgid "This Funnel will start a student completes a lesson"
+msgid "This funnel runs when a student completes a lesson"
+msgstr "משפך זה יתחיל תלמיד משלים שיעור"
+
+#: app/Services/Integrations/LearnDash/TopicCompletedTrigger.php:24
+msgid "This funnel runs when a student completes a lesson topic"
+msgstr ""
+
+#: app/Services/Integrations/LifterLms/MembershipEnrollTrigger.php:30
+#, fuzzy
+#| msgid ""
+#| "This Funnel will start when a student has been enrolled in a membership "
+#| "level"
+msgid "This funnel runs when a student has been enrolled in a membership level"
+msgstr "משפך זה יתחיל כאשר סטודנט נרשם לרמת חברות"
+
+#: app/Services/Integrations/LearnDash/CourseEnrollTrigger.php:25
+#: app/Services/Integrations/TutorLms/CourseEnrollTrigger.php:26
+#, fuzzy
+#| msgid "This funnel will start when a student is enrolled in a course"
+msgid "This funnel runs when a student is enrolled in a course"
+msgstr "משפך זה יתחיל כאשר סטודנט נרשם לקורס"
+
+#: app/Services/Integrations/LearnDash/CourseLeaveTrigger.php:26
+msgid "This funnel runs when a student leaves a course"
+msgstr ""
+
+#: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:25
+msgid "This funnel runs when a subscription expires"
+msgstr ""
+
+#: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:25
+#, fuzzy
+#| msgid "This funnel will start when a user is enrolled in a group"
+msgid "This funnel runs when a user is enrolled in a group"
+msgstr "משפך זה יתחיל כאשר משתמש נרשם לקבוצה"
+
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:32
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:41
+msgid ""
+"This Funnel will be initiated a tracking event has been recorded for a "
+"contact"
+msgstr ""
+
+#: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:49
+msgid ""
+"This funnel will be initiated when a new affiliate gets approved/registered "
+"directly"
 msgstr ""
 
 #: app/Services/Funnel/Triggers/UserLoginTrigger.php:26
@@ -3671,39 +3859,28 @@ msgstr ""
 msgid "This Funnel will be initiated when a user login to your site"
 msgstr ""
 
-#: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:49
 #: app/Services/Integrations/AffiliateWP/AffiliateWPAffActiveTrigger.php:64
 msgid ""
 "This Funnel will be initiated when affiliate will be approved or register as "
 "direct approved"
 msgstr "משפך זה יופעל כאשר אישור השותף יאושר או יירשם כאישור ישיר"
 
-#: app/Services/Integrations/Edd/EddLicenseExpiredTrigger.php:25
 #: app/Services/Integrations/Edd/EddLicenseExpiredTrigger.php:40
 msgid "This Funnel will start a license status get marked as expired"
 msgstr ""
 
-#: app/Services/Integrations/LifterLms/CourseCompletedTrigger.php:26
-#: app/Services/Integrations/TutorLms/CourseCompletedTrigger.php:26
-msgid "This Funnel will start a student completes a Course"
-msgstr "משפך זה יתחיל סטודנט מסיים קורס"
+#: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:27
+#, fuzzy
+#| msgid "This Funnel will start once new order has been placed as processing"
+msgid "This funnel will start once a new order will be added as processing"
+msgstr "משפך זה יתחיל לאחר שהזמנה חדשה תתווסף כעיבוד"
 
-#: app/Services/Integrations/TutorLms/LessonCompletedTrigger.php:26
-msgid "This Funnel will start a student completes a Lesson"
-msgstr ""
-
-#: app/Services/Integrations/LearnDash/LessonCompletedTrigger.php:25
-msgid "This Funnel will start a student completes a lesson"
-msgstr "משפך זה יתחיל תלמיד משלים שיעור"
-
-#: app/Services/Integrations/Edd/EddRecurringExpired.php:25
 #: app/Services/Integrations/Edd/EddRecurringExpired.php:41
 msgid ""
 "This Funnel will start once a Recurring Subscription status changed to "
 "expired"
 msgstr ""
 
-#: app/Services/Integrations/Edd/EddRecurringPaymentTrigger.php:25
 #: app/Services/Integrations/Edd/EddRecurringPaymentTrigger.php:41
 msgid ""
 "This Funnel will start once a Renewal Payment received for an active "
@@ -3714,19 +3891,11 @@ msgstr ""
 msgid "This Funnel will start once an order get marked as refunded"
 msgstr ""
 
-#: app/Services/Integrations/WooCommerce/WooOrderCompletedTrigger.php:26
-msgid "This Funnel will start once new order has been marked as completed"
+#: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:25
+msgid "This funnel will start once new order payment is successful"
 msgstr ""
 
-#: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:27
-#, fuzzy
-#| msgid "This Funnel will start once new order will be added as processing"
-msgid "This Funnel will start once new order has been placed as processing"
-msgstr "משפך זה יתחיל לאחר שהזמנה חדשה תתווסף כעיבוד"
-
-#: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:26
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:42
-#: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:25
 #: app/Services/Integrations/Edd/EddPaymentSuccessTrigger.php:41
 msgid ""
 "This Funnel will start once new order will be added as successful payment"
@@ -3748,55 +3917,59 @@ msgstr "משפך זה יתחיל ברגע שהזמנה חדשה <b> תסומן �
 msgid "This Funnel will start once order will be refunded"
 msgstr ""
 
-#: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:25
-msgid "This Funnel will start once order will be revoked"
-msgstr ""
-
 #: app/Services/Integrations/Edd/EddPaymentRefundTrigger.php:26
 msgid "This Funnel will start once payment refunded for an order"
 msgstr ""
 
-#: app/Services/Integrations/LifterLms/CourseEnrollTrigger.php:30
-msgid "This funnel will start when a contact has been enrolled in a course"
-msgstr "משפך זה יתחיל כאשר איש קשר נרשם לקורס"
+#: app/Services/Integrations/Edd/EddLicenseExpiredTrigger.php:25
+msgid "This funnel will start when a license gets expired"
+msgstr ""
 
-#: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:26
 #: app/Services/Integrations/WishlistMember/WishlistMembershipTrigger.php:41
 msgid "This funnel will start when a member is added to a level"
 msgstr "משפך זה יתחיל כאשר חבר מתווסף לרמה"
 
-#: app/Services/Integrations/RCP/RCPMembershipTrigger.php:26
 #: app/Services/Integrations/RCP/RCPMembershipTrigger.php:41
 msgid ""
 "This funnel will start when a member is added to a level for the first time"
 msgstr "משפך זה יתחיל כאשר חבר מתווסף לרמה בפעם הראשונה"
 
-#: app/Services/Integrations/RCP/RCPMembershipCancelTrigger.php:26
 #: app/Services/Integrations/RCP/RCPMembershipCancelTrigger.php:41
 msgid "This funnel will start when a membership has been cancelled"
 msgstr ""
 
-#: app/Services/Integrations/RCP/RCPMembershipExpireTrigger.php:26
 #: app/Services/Integrations/RCP/RCPMembershipExpireTrigger.php:41
 msgid "This funnel will start when a membership has been expired"
 msgstr ""
 
-#: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:26
-#: app/Services/Integrations/PMPro/PMProPMProCancelLevelTrigger.php:41
+#: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:41
 msgid "This funnel will start when a membership has been expired for a user"
 msgstr ""
 
-#: app/Services/Integrations/MemberPress/MembershipTrigger.php:26
 #: app/Services/Integrations/MemberPress/MembershipTrigger.php:41
 msgid ""
 "This funnel will start when a membership level get activated for a member"
 msgstr "משפך זה יתחיל כאשר רמת חבר מופעלת עבור חבר"
 
-#: app/Services/Integrations/WooCommerce/WooOrderStatusChangeTrigger.php:25
 #: app/Services/Integrations/WooCommerce/WooOrderStatusChangeTrigger.php:41
 msgid ""
 "This Funnel will start when a Order status will change from one state to "
 "another"
+msgstr ""
+
+#: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:27
+msgid ""
+"This funnel will start when a recurring payment received for a subscription"
+msgstr ""
+
+#: app/Services/Integrations/Edd/EddRecurringExpired.php:25
+msgid "This funnel will start when a recurring subscription gets expired"
+msgstr ""
+
+#: app/Services/Integrations/Edd/EddRecurringPaymentTrigger.php:25
+msgid ""
+"This funnel will start when a renewal payment is received for an active "
+"subscription"
 msgstr ""
 
 #: app/Services/Integrations/LifterLms/CourseCompletedTrigger.php:41
@@ -3805,27 +3978,14 @@ msgstr ""
 msgid "This Funnel will start when a student completes a Course"
 msgstr "משפך זה יתחיל כאשר סטודנט יסיים קורס"
 
-#: app/Services/Integrations/LearnDash/CourseCompletedTrigger.php:25
-msgid "This Funnel will start when a student completes a course"
-msgstr ""
-
 #: app/Services/Integrations/TutorLms/LessonCompletedTrigger.php:41
 msgid "This Funnel will start when a student completes a Lesson"
 msgstr ""
 
-#: app/Services/Integrations/LifterLms/LessonCompletedTrigger.php:30
 #: app/Services/Integrations/LifterLms/LessonCompletedTrigger.php:45
 #: app/Services/Integrations/LearnDash/LessonCompletedTrigger.php:40
 msgid "This Funnel will start when a student completes a lesson"
 msgstr "משפך זה יתחיל כאשר תלמיד יסיים שיעור"
-
-#: app/Services/Integrations/LifterLms/MembershipEnrollTrigger.php:30
-#, fuzzy
-#| msgid ""
-#| "This Funnel will start when a student is enrolled in a membership level"
-msgid ""
-"This Funnel will start when a student has been enrolled in a membership level"
-msgstr "משפך זה יתחיל כאשר סטודנט נרשם לרמת חברות"
 
 #: app/Services/Integrations/LifterLms/MembershipEnrollTrigger.php:45
 msgid "This funnel will start when a student is added in a Membership"
@@ -3837,11 +3997,6 @@ msgstr "משפך זה יתחיל כאשר תלמיד יתווסף לחברות"
 msgid "This Funnel will start when a student is enrolled in a course"
 msgstr "משפך זה יתחיל כאשר סטודנט נרשם לקורס"
 
-#: app/Services/Integrations/LearnDash/CourseEnrollTrigger.php:25
-#: app/Services/Integrations/TutorLms/CourseEnrollTrigger.php:26
-msgid "This funnel will start when a student is enrolled in a course"
-msgstr "משפך זה יתחיל כאשר סטודנט נרשם לקורס"
-
 #: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:40
 msgid "This Funnel will start when a student is enrolled in a group"
 msgstr "משפך זה יתחיל כאשר סטודנט נרשם לקבוצה"
@@ -3850,32 +4005,47 @@ msgstr "משפך זה יתחיל כאשר סטודנט נרשם לקבוצה"
 msgid "This Funnel will start when a student is leave from a course"
 msgstr ""
 
-#: app/Services/Integrations/LearnDash/CourseLeaveTrigger.php:26
-msgid "This funnel will start when a student is leave from a course"
-msgstr ""
-
-#: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:25
 #: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:40
 msgid "This funnel will start when a subscription has been expired"
 msgstr ""
 
-#: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:26
-msgid ""
-"This funnel will start when a user is assigned to specified membership levels"
-msgstr "משפך זה יתחיל כאשר משתמש מוקצה לרמות חברות שצוינו"
+#: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:27
+msgid "This funnel will start when a subscription payment fails"
+msgstr ""
 
-#: app/Services/Integrations/LearnDash/TopicCompletedTrigger.php:24
 #: app/Services/Integrations/LearnDash/TopicCompletedTrigger.php:39
 msgid "This funnel will start when a user is completes a lesson topic"
 msgstr "משפך זה יתחיל כאשר משתמש משלים את נושא השיעור"
 
-#: app/Services/Integrations/LearnDash/GroupEnrollTrigger.php:25
-msgid "This funnel will start when a user is enrolled in a group"
-msgstr "משפך זה יתחיל כאשר משתמש נרשם לקבוצה"
+#: app/Services/Integrations/WooCommerce/WooSubscriptionStartedTrigger.php:27
+msgid ""
+"This funnel will start when a WooCommerce subscription begins or its status "
+"changes to active."
+msgstr ""
+
+#: app/Services/Integrations/WooCommerce/WooOrderCompletedTrigger.php:26
+msgid "This funnel will start when an order is completed"
+msgstr ""
+
+#: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:26
+msgid "This funnel will start when an order is refunded"
+msgstr ""
+
+#: app/Services/Integrations/WooCommerce/WooOrderStatusChangeTrigger.php:25
+msgid "This funnel will start when an order status changes"
+msgstr ""
 
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:41
 msgid "This funnel will start when an user is enrolled in Membership Levels"
 msgstr "משפך זה יתחיל כאשר משתמש נרשם לרמות חברות"
+
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessTrigger.php:26
+msgid "This funnel will start when new order payment is successful"
+msgstr ""
+
+#: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:25
+msgid "This funnel will start when order will be revoked"
+msgstr ""
 
 #: app/Services/DynamicSegments/CustomSegment.php:51
 msgid ""
@@ -3933,6 +4103,7 @@ msgid "This will run once a subscription gets active"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessBenchmark.php:26
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:25
 msgid "This will run once new order has been placed as processing"
 msgstr "פעולה זו תפעל לאחר ביצוע הזמנה חדשה כטיפול"
 
@@ -3944,6 +4115,7 @@ msgid "This will run once new order will be placed as completed in EDD"
 msgstr "פעולה זו תפעל ברגע שההזמנה החדשה תתבצע כעיבוד ב- EDD"
 
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessBenchmark.php:53
+#: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:48
 msgid "This will run once new order will be placed as processing"
 msgstr "פעולה זו תפעל ברגע שההזמנה החדשה תתבצע כעיבוד"
 
@@ -4053,6 +4225,10 @@ msgstr ""
 msgid "to view in details WooCommerce reports"
 msgstr ""
 
+#: app/Services/Integrations/LearnDash/TopicCompletedTrigger.php:23
+msgid "Topic Completed"
+msgstr ""
+
 #: app/Services/Integrations/WooCommerce/WooSmartCodeParse.php:259
 #: app/Services/Integrations/Edd/EddSmartCodeParse.php:309
 msgid "Total"
@@ -4126,10 +4302,17 @@ msgstr ""
 msgid "Total Students"
 msgstr ""
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:31
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:40
+msgid "Tracking Event Recorded"
+msgstr ""
+
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:86
 #: app/Services/Funnel/Conditions/FunnelCondition.php:50
 msgid "True if all conditions match"
 msgstr ""
 
+#: app/Services/Funnel/Triggers/TrackingEventRecordedTrigger.php:87
 #: app/Services/Funnel/Conditions/FunnelCondition.php:51
 msgid "True if any of the conditions match"
 msgstr ""
@@ -4305,7 +4488,7 @@ msgid ""
 "lifetime values, purchase dates and target your customers more efficiently."
 msgstr ""
 
-#: app/Services/Funnel/Actions/HTTPSendDataAction.php:132
+#: app/Services/Funnel/Actions/HTTPSendDataAction.php:133
 msgid "With Headers"
 msgstr ""
 
@@ -4345,7 +4528,7 @@ msgstr ""
 msgid "Woo Current Order"
 msgstr ""
 
-#: app/Services/Integrations/WooCommerce/WooInit.php:274
+#: app/Services/Integrations/WooCommerce/WooInit.php:280
 msgid "Woo Subscriptions (%d)"
 msgstr ""
 

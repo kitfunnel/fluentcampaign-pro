@@ -23,6 +23,8 @@ class Sequence extends Model
 
     public static function boot()
     {
+        parent::boot();
+
         static::creating(function ($model) {
             $model->email_body = $model->email_body ? $model->email_body : '';
             $model->status = $model->status ?: 'draft';

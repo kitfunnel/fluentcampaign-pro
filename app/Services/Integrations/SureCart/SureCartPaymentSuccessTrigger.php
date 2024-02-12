@@ -23,7 +23,7 @@ class SureCartPaymentSuccessTrigger extends BaseTrigger
         return [
             'category'    => 'SureCart',
             'label'       => __('SureCart - New Order Success', 'fluentcampaign-pro'),
-            'description' => __('This Funnel will start once new order will be added as successful payment', 'fluentcampaign-pro'),
+            'description' => __('This funnel will start when new order payment is successful', 'fluentcampaign-pro'),
             'icon'        => 'el-icon-shopping-cart-full',
         ];
     }
