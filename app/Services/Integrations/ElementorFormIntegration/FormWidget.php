@@ -171,7 +171,12 @@ class FormWidget extends Integration_Base
         $addOnly = Arr::get($settings, 'fluentcrm_add_only', '') == 'yes';
 
         $exist = FluentCrmApi('contacts')->getContact($processedData['email']);
+
         if ($addOnly && $exist) {
+            if ($isDoubleOptin && in_array($exist->status, ['pending', 'unsubscribed'])) {
+                $exist->sendDoubleOptinEmail();
+            }
+
             return false;
         }
 
@@ -179,6 +184,10 @@ class FormWidget extends Integration_Base
             if (!$exist || $exist->status != 'subscribed') {
                 $processedData['status'] = 'pending';
             }
+        }
+
+        if (!$isDoubleOptin) {
+            $processedData['status'] = 'subscribed';
         }
 
         $contact = FluentCrmApi('contacts')->createOrUpdate($processedData);

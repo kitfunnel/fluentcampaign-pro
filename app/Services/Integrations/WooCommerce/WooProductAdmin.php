@@ -470,6 +470,10 @@ class WooProductAdmin
 
         $tagKey = $validStatuses[$status];
 
+        if ($tagKey == 'on_sub_expired') {
+            do_action('fluent_crm/woo_subscription_expired_simulated', $subscription, $user_id);
+        }
+
         $actionTags = $this->getActionTags($subscription, $tagKey);
 
         if (empty($actionTags['apply_tags']) && empty($actionTags['remove_tags'])) {

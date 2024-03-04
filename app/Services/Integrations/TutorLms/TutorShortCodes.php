@@ -67,7 +67,7 @@ class TutorShortCodes
         $triggerSource = false;
         $triggerId = false;
 
-        if (empty($subscriber->funnel_subscriber_id)) {
+        if (!empty($subscriber->funnel_subscriber_id)) {
             $funnelSub = FunnelSubscriber::where('id', $subscriber->funnel_subscriber_id)->first();
             if ($funnelSub) {
                 $triggerSource = Helper::getTriggerSource($funnelSub->source_trigger_name);
@@ -167,7 +167,7 @@ class TutorShortCodes
         $courseContext = [
             '{{tl.course_name}}'        => 'Current Course Title',
             '{{tl.course_name_linked}}' => 'Current Course Title with Hyperlink',
-            '%%tl.course_href%%'        => 'HTTP Link of the current course'
+            '##tl.course_href##'        => 'HTTP Link of the current course'
         ];
 
         if ($context == 'all') {

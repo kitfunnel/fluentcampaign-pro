@@ -99,7 +99,7 @@ class LdSmartCodes
         $triggerSource = false;
         $triggerId = false;
 
-        if (empty($subscriber->funnel_subscriber_id)) {
+        if (!empty($subscriber->funnel_subscriber_id)) {
             $funnelSub = FunnelSubscriber::where('id', $subscriber->funnel_subscriber_id)->first();
             if ($funnelSub) {
                 $triggerSource = Helper::getTriggerSource($funnelSub->source_trigger_name);
@@ -239,25 +239,25 @@ class LdSmartCodes
         $courseContext = [
             '{{ld.course_name}}'        => 'Current Course Title',
             '{{ld.course_name_linked}}' => 'Current Course Title with Hyperlink',
-            '%%ld.course_href%%'        => 'HTTP Link of the current course'
+            '##ld.course_href##'        => 'HTTP Link of the current course'
         ];
 
         $membershipContext = [
             '{{ld.group_name}}'        => 'Current Membership Title',
             '{{ld.group_name_linked}}' => 'Current Membership Title with Hyperlink',
-            '%%ld.group_href%%'        => 'HTTP Link of the current membership'
+            '##ld.group_href##'        => 'HTTP Link of the current membership'
         ];
 
         $lessonContext = [
             '{{ld.lesson_name}}'        => 'Current Lesson Title',
             '{{ld.lesson_name_linked}}' => 'Current Lesson Title with Hyperlink',
-            '%%ld.lesson_href%%'        => 'HTTP Link of the current Lesson'
+            '##ld.lesson_href##'        => 'HTTP Link of the current Lesson'
         ];
 
         $topicContext = [
             '{{ld.topic_name}}'        => 'Current Topic Title',
             '{{ld.topic_name_linked}}' => 'Current Topic Title with Hyperlink',
-            '%%ld.topic_href%%'        => 'HTTP Link of the current Topic'
+            '##ld.topic_href##'        => 'HTTP Link of the current Topic'
         ];
 
         if ($context == 'all') {

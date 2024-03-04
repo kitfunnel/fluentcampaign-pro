@@ -43,6 +43,7 @@ class WooInit
             new WooSubscriptionStartedTrigger();
             new WooSubscriptionRenewalPaymentTrigger();
             new WooSubscriptionRenewalFailedTrigger();
+            new WooSubscriptionExpiredTrigger();
             add_filter('fluent_crm/subscriber_top_widgets', array($this, 'pushSubscriptionWidgets'), 10, 2);
         }
     }

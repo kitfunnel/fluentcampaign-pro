@@ -107,7 +107,6 @@ class CourseEnrollTrigger extends BaseTrigger
             return false;
         }
 
-
         $subscriberData = FunnelHelper::prepareUserData($userId);
 
         $subscriberData['source'] = 'LearnDash';

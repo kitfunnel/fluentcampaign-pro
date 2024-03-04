@@ -41,6 +41,8 @@ class WooSyncHelper
 
         $processedOrderIds = [];
 
+        $lastOrder = null;
+
         foreach ($orders as $order) {
 
             if (!$order->get_id()) {
@@ -136,6 +138,10 @@ class WooSyncHelper
             if ($items) {
                 $relationItems = array_merge($relationItems, $items);
             }
+
+            if (!$lastOrder || $lastOrder->get_id() < $order->get_id()) {
+                $lastOrder = $order;
+            }
         }
 
         if (!$relationItems) {
@@ -170,6 +176,17 @@ class WooSyncHelper
                 'country'     => $customer->country,
                 'phone'       => $billingPhone
             ];
+
+            if ($lastOrder) {
+                $contactData = wp_parse_args([
+                    'address_line_1' => $lastOrder->get_billing_address_1('edit'),
+                    'address_line_2' => $lastOrder->get_billing_address_2('edit'),
+                    'city'           => $lastOrder->get_billing_city('edit'),
+                    'state'          => $lastOrder->get_billing_state('edit'),
+                    'country'        => $lastOrder->get_billing_country('edit'),
+                    'postal_code'    => $lastOrder->get_billing_postcode('edit'),
+                ], $contactData);
+            }
         }
 
         $contactData['contact_type'] = 'customer';

@@ -141,8 +141,9 @@ class Helper
 
         if (!empty($conditions['product_categories'])) {
             $categoryMatch = fluentCrmDb()->table('term_relationships')
-                ->whereIn('term_taxonomy_id', $conditions['product_categories'])
-                ->whereIn('object_id', $purchaseProductIds)
+                ->join('term_taxonomy', 'term_relationships.term_taxonomy_id', '=', 'term_taxonomy.term_taxonomy_id')
+                ->whereIn('term_relationships.object_id', $purchaseProductIds)
+                ->whereIn('term_taxonomy.term_id', $conditions['product_categories'])
                 ->count();
 
             if (!$categoryMatch) {
@@ -266,8 +267,7 @@ class Helper
     /**
      * @param $order \WC_Order
      */
-    public
-    static function getPaidOrderCountByReferenceOrder($order)
+    public static function getPaidOrderCountByReferenceOrder($order)
     {
         $customerId = $order->get_customer_id();
 
@@ -298,8 +298,7 @@ class Helper
         return count(array_unique($orderIds)) + 1;
     }
 
-    public
-    static function getTagsCatsByProductIds($productIds)
+    public static function getTagsCatsByProductIds($productIds)
     {
         $items = fluentCrmDb()->table('term_relationships')
             ->select(['term_taxonomy.term_id'])
@@ -317,8 +316,7 @@ class Helper
         return array_values(array_unique($formattedItems));
     }
 
-    public
-    static function getProductName($productId, $variationId = false, $separator = ' - ', $after = '', $disableCache = false)
+    public static function getProductName($productId, $variationId = false, $separator = ' - ', $after = '', $disableCache = false)
     {
         $cacheKey = $productId . '_' . $variationId;
 
@@ -346,8 +344,7 @@ class Helper
      * @param $order \WC_Order
      * @return false|\stdClass
      */
-    public
-    static function getDbCustomerFromOrder($order)
+    public static function getDbCustomerFromOrder($order)
     {
         if ($customerUserId = $order->get_customer_id()) {
             $customer = fluentCrmDb()->table('wc_customer_lookup')

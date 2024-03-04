@@ -7,13 +7,13 @@ use FluentCrm\App\Services\Funnel\FunnelHelper;
 use FluentCrm\App\Services\Funnel\FunnelProcessor;
 use FluentCrm\Framework\Support\Arr;
 
-class WooSubscriptionRenewalFailedTrigger extends BaseTrigger
+class WooSubscriptionExpiredTrigger extends BaseTrigger
 {
     public function __construct()
     {
-        $this->triggerName = 'woocommerce_subscription_renewal_payment_failed';
-        $this->priority = 23;
-        $this->actionArgNum = 1;
+        $this->triggerName = 'fluent_crm/woo_subscription_expired_simulated';
+        $this->priority = 24;
+        $this->actionArgNum = 2;
         parent::__construct();
     }
 
@@ -22,9 +22,9 @@ class WooSubscriptionRenewalFailedTrigger extends BaseTrigger
         return [
             'ribbon'      => 'subscription',
             'category'    => __('WooCommerce', 'fluentcampaign-pro'),
-            'label'       => __('Renewal Payment Failed', 'fluentcampaign-pro'),
+            'label'       => __('Renewal Subscription Expired', 'fluentcampaign-pro'),
             'icon'        => 'fc-icon-woo_refund',
-            'description' => __('This funnel will start when a subscription payment fails', 'fluentcampaign-pro')
+            'description' => __('This funnel will start when a subscription expires', 'fluentcampaign-pro')
         ];
     }
 
@@ -54,7 +54,7 @@ class WooSubscriptionRenewalFailedTrigger extends BaseTrigger
                 'is_multiple'        => true,
                 'label'              => __('Target Products', 'fluentcampaign-pro'),
                 'help'               => __('Select for which subscription products this automation will run', 'fluentcampaign-pro'),
-                'inline_help'        => __('Keep it blank to run to any subscription renewal failed', 'fluentcampaign-pro')
+                'inline_help'        => __('Keep it blank to run to any subscription expire', 'fluentcampaign-pro')
             ],
             'run_multiple' => [
                 'type'        => 'yes_no_check',
@@ -68,8 +68,8 @@ class WooSubscriptionRenewalFailedTrigger extends BaseTrigger
     public function getSettingsFields($funnel)
     {
         return [
-            'title'     => __('WooCommerce Renewal Payment failed', 'fluentcampaign-pro'),
-            'sub_title' => __('This Automation will start when a payment fails for a subscription', 'fluentcampaign-pro'),
+            'title'     => __('Renewal Subscription Expired', 'fluentcampaign-pro'),
+            'sub_title' => __('This Automation will start when a subscription expires', 'fluentcampaign-pro'),
             'fields'    => [
                 'subscription_status'      => [
                     'type'        => 'option_selectors',

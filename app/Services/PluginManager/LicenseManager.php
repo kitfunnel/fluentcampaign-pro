@@ -34,7 +34,6 @@ class LicenseManager
             if($details && !empty($details['message'])) {
                 $notices[] = '<div style="padding: 10px;" class="error">'.$details['message'].'</div>';
             }
-
             return $notices;
         });
 
@@ -76,7 +75,7 @@ class LicenseManager
 
     public function getLicenseDetails()
     {
-        return array('status'=>'valid', 'license_key' => '*********', 'expires'     => '01.01.2030',);
+        return array('status'=>'valid', 'license_key' => '*********', 'price_id' => '1', 'expires' => '01.01.2030',);
 
         $settingsKey = $this->getVar('settings_key');
         $defaults = [

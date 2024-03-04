@@ -74,4 +74,14 @@ class SequenceTracker extends Model
                      ->where('next_execution_time', '<=', current_time('mysql'));
     }
 
+    public function setNotesAttribute($notes)
+    {
+        $this->attributes['notes'] = \maybe_serialize($notes);
+    }
+
+    public function getNotesAttribute($notes)
+    {
+        return \maybe_unserialize($notes);
+    }
+
 }

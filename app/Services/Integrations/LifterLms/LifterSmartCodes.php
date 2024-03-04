@@ -117,7 +117,7 @@ class LifterSmartCodes
         $triggerSource = false;
         $triggerId = false;
 
-        if (empty($subscriber->funnel_subscriber_id)) {
+        if (!empty($subscriber->funnel_subscriber_id)) {
             $funnelSub = FunnelSubscriber::where('id', $subscriber->funnel_subscriber_id)->first();
             if ($funnelSub) {
                 $triggerSource = Helper::getTriggerSource($funnelSub->source_trigger_name);
@@ -237,19 +237,19 @@ class LifterSmartCodes
         $courseContext = [
             '{{lifter.course_name}}'        => 'Current Course Title',
             '{{lifter.course_name_linked}}' => 'Current Course Title with Hyperlink',
-            '%%lifter.course_href%%'        => 'HTTP Link of the current course'
+            '##lifter.course_href##'        => 'HTTP Link of the current course'
         ];
 
         $membershipContext = [
             '{{lifter.group_name}}'        => 'Current Membership Title',
             '{{lifter.group_name_linked}}' => 'Current Membership Title with Hyperlink',
-            '%%lifter.group_href%%'        => 'HTTP Link of the current membership'
+            '##lifter.group_href##'        => 'HTTP Link of the current membership'
         ];
 
         $lessonContext = [
             '{{lifter.lesson_name}}'        => 'Current Lesson Title',
             '{{lifter.lesson_name_linked}}' => 'Current Lesson Title with Hyperlink',
-            '%%lifter.lesson_href%%'        => 'HTTP Link of the current Lesson'
+            '##lifter.lesson_href##'        => 'HTTP Link of the current Lesson'
         ];
 
         if ($withContext == 'all') {

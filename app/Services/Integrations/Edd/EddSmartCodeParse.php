@@ -281,7 +281,7 @@ class EddSmartCodeParse
                 '{{edd_license.product_name}}' => 'Product Name',
                 '{{edd_license.product_id}}'   => 'Product ID',
                 '{{edd_license.expire_date}}'  => 'Expire Date',
-                '%%edd_license.renew_url%%'    => 'Renew URL'
+                '##edd_license.renew_url##'    => 'Renew URL'
             ];
         }
 

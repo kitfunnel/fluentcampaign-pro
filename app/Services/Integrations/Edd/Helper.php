@@ -88,9 +88,11 @@ class Helper
         }
 
         if ($targetCategories = $conditions['product_categories']) {
+
             $categoryMatch = fluentCrmDb()->table('term_relationships')
-                ->whereIn('object_id', $purchaseProductIds)
-                ->whereIn('term_taxonomy_id', $targetCategories)
+                ->join('term_taxonomy', 'term_relationships.term_taxonomy_id', '=', 'term_taxonomy.term_taxonomy_id')
+                ->whereIn('term_relationships.object_id', $purchaseProductIds)
+                ->whereIn('term_taxonomy.term_id', $targetCategories)
                 ->count();
 
             if (!$categoryMatch) {

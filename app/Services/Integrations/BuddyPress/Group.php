@@ -19,6 +19,11 @@ class Group
         add_action('groups_join_group', array($this, 'onJoin'), 20, 2);
         add_action('groups_leave_group', array($this, 'onLeave'), 20, 2);
         add_action('groups_member_after_remove', array($this, 'onRemove'), 20, 3);
+
+        add_action('groups_accept_invite', function ($userId, $groupId) {
+            $this->onJoin($groupId, $userId);
+        }, 10, 2);
+
     }
 
     public function addMeta($item)
@@ -32,7 +37,8 @@ class Group
             <input type="hidden" value="yes" name="_has_fcrm"/>
             <fieldset>
                 <legend><?php _e('Apply Tags', 'fluentcampaign-pro'); ?></legend>
-                <select placeholder="<?php esc_attr_e('Select Tags', 'fluentcampaign-pro'); ?>" style="width:100%;" class="fc_multi_select"
+                <select placeholder="<?php esc_attr_e('Select Tags', 'fluentcampaign-pro'); ?>" style="width:100%;"
+                        class="fc_multi_select"
                         name="_fcrm[attach_tags][]" multiple="multiple">
                     <?php foreach ($tags as $tag): ?>
                         <option
@@ -42,8 +48,10 @@ class Group
                     <?php endforeach; ?>
                 </select>
                 <p><?php esc_html_e('Selected tags will be added to the member on joining', 'fluentcampaign-pro'); ?></p>
-                <label style="margin-top: 0px; margin-bottom: 5px; display: block;" for="fluentcrm_remove_tags_member_type">
-                    <input id="fluentcrm_remove_tags_member_type" value="yes" type="checkbox" name="_fcrm[remove_tag]" <?php checked($settings['remove_tag'], 'yes');  ?>>
+                <label style="margin-top: 0px; margin-bottom: 5px; display: block;"
+                       for="fluentcrm_remove_tags_member_type">
+                    <input id="fluentcrm_remove_tags_member_type" value="yes" type="checkbox"
+                           name="_fcrm[remove_tag]" <?php checked($settings['remove_tag'], 'yes'); ?>>
                     <?php _e('Remove Tags on leave defined in "Apply Tags"', 'fluentcampaign-pro'); ?></label>
             </fieldset>
         </div>
@@ -58,7 +66,7 @@ class Group
             $settings = Arr::get($_REQUEST, '_fcrm', []);
             $defaults = [
                 'attach_tags' => [],
-                'remove_tag' => ''
+                'remove_tag'  => ''
             ];
             $settings = wp_parse_args($settings, $defaults);
             groups_update_groupmeta($groupId, '_fcrm_config', $settings);
@@ -75,7 +83,7 @@ class Group
         $subscriberData = FunnelHelper::prepareUserData($userId);
         $subscriberData['tags'] = $settings['attach_tags'];
 
-        return FunnelHelper::createOrUpdateContact($subscriberData);
+        return FluentCrmApi('contacts')->createOrUpdate($subscriberData);
     }
 
     public function onLeave($groupId, $userId)

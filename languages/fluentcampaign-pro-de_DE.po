@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FluentCRM Pro\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 12:53+0000\n"
-"PO-Revision-Date: 2024-02-06 14:32+0000\n"
+"PO-Revision-Date: 2024-03-01 13:41+0000\n"
 "Last-Translator: CarstenCosta\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -237,6 +237,7 @@ msgstr "Alle Lizenzen"
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:83
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:52
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:54
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:83
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:83
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:52
 #: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:52
@@ -287,7 +288,7 @@ msgstr "Jede Art von Kauf"
 msgid "AOV"
 msgstr "AOV"
 
-#: app/Services/Integrations/BuddyPress/Group.php:34
+#: app/Services/Integrations/BuddyPress/Group.php:39
 #: app/Services/Integrations/BuddyPress/BBMemberType.php:56
 #: app/Services/Integrations/Edd/EddMetaBoxes.php:49
 #: app/Services/Integrations/Edd/EddMetaBoxes.php:103
@@ -449,7 +450,7 @@ msgstr ""
 "Überprüfen Sie, ob der Kontakt mit bestimmten Dateneigenschaften "
 "übereinstimmt"
 
-#: app/Services/PluginManager/LicenseManager.php:54
+#: app/Services/PluginManager/LicenseManager.php:53
 msgid "Check Update"
 msgstr "Aktualisierung überprüfen"
 
@@ -459,11 +460,11 @@ msgstr "Aktualisierung überprüfen"
 msgid "City"
 msgstr "Stadt"
 
-#: app/Services/PluginManager/LicenseManager.php:341
+#: app/Services/PluginManager/LicenseManager.php:340
 msgid "Click Here to purchase another license"
 msgstr "Klicken Sie hier, um eine weitere Lizenz zu erwerben"
 
-#: app/Services/PluginManager/LicenseManager.php:358
+#: app/Services/PluginManager/LicenseManager.php:357
 msgid "Click Here to Renew Your License"
 msgstr "Click Here to Renew Your License"
 
@@ -594,6 +595,7 @@ msgstr "Kontaktquelle"
 
 #: app/Services/Integrations/WooCommerce/WooSubscriptionStartedTrigger.php:78
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:78
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:78
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:78
 #: app/Services/Integrations/Edd/EddRecurringExpired.php:47
 msgid "Contact Status"
@@ -821,7 +823,7 @@ msgstr ""
 "Wenn der Kontakt kein bestehender WordPress-Benutzer ist, nicht für den Kurs "
 "anmelden."
 
-#: app/Services/PluginManager/LicenseManager.php:52
+#: app/Services/PluginManager/LicenseManager.php:51
 msgid "Docs"
 msgstr "Dokumente"
 
@@ -1165,7 +1167,7 @@ msgstr "FluentCRM-Integration"
 msgid "FluentCRM Pro"
 msgstr "FluentCRM Pro"
 
-#: app/Services/Integrations/WooCommerce/WooInit.php:155
+#: app/Services/Integrations/WooCommerce/WooInit.php:156
 #: app/Services/Integrations/Edd/EddInit.php:130
 msgid "FluentCRM Profile"
 msgstr "FluentCRM Profile"
@@ -1301,7 +1303,7 @@ msgstr "Header-Schlüssel"
 msgid "Header Value"
 msgstr "Header-Wert"
 
-#: app/Services/PluginManager/LicenseManager.php:53
+#: app/Services/PluginManager/LicenseManager.php:52
 msgid "Help & Support"
 msgstr "Hilfe und Unterstützung"
 
@@ -1373,6 +1375,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:63
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:95
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:105
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:63
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:63
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:92
 #: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:85
@@ -1621,6 +1624,10 @@ msgstr "Lassen Sie es leer, um zu einer Produktrückerstattung zu gelangen"
 #: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:78
 msgid "Keep it blank to run to any subscription cancellation"
 msgstr "Lassen Sie es leer, um zu einer Abonnementkündigung zu gelangen"
+
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:57
+msgid "Keep it blank to run to any subscription expire"
+msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:57
 msgid "Keep it blank to run to any subscription renewal failed"
@@ -2594,7 +2601,7 @@ msgstr "Ausgewählte Schlüsselwörter bei Rückerstattung entfernen"
 msgid "Remove Tags"
 msgstr "Sclüsselwörter entfernen"
 
-#: app/Services/Integrations/BuddyPress/Group.php:47
+#: app/Services/Integrations/BuddyPress/Group.php:55
 #: app/Services/Integrations/BuddyPress/BBMemberType.php:75
 msgid "Remove Tags on leave defined in \"Apply Tags\""
 msgstr ""
@@ -2652,6 +2659,11 @@ msgstr ""
 msgid "Renewal Payment Received"
 msgstr "Zahlung für die Verlängerung erhalten"
 
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:25
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:71
+msgid "Renewal Subscription Expired"
+msgstr ""
+
 #: app/Services/Integrations/WooCommerce/AdvancedReport.php:76
 #: app/Services/Integrations/Edd/AdvancedReport.php:69
 msgid "Renews"
@@ -2699,6 +2711,7 @@ msgstr "Header-Daten anfordern"
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:62
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:94
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:104
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:62
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:62
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:91
 #: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:84
@@ -2752,11 +2765,11 @@ msgstr "Restrict Content Pro"
 msgid "Run When"
 msgstr "Laufen lassen, wenn"
 
-#: app/Services/Integrations/WooCommerce/WooInit.php:81
+#: app/Services/Integrations/WooCommerce/WooInit.php:82
 msgid "Sales (This Month)"
 msgstr "Verkäufe (diesen Monat)"
 
-#: app/Services/Integrations/WooCommerce/WooInit.php:77
+#: app/Services/Integrations/WooCommerce/WooInit.php:78
 msgid "Sales (Today)"
 msgstr "Verkäufe (heute)"
 
@@ -3026,6 +3039,7 @@ msgstr "Select for which products this benchmark will run"
 
 #: app/Services/Integrations/WooCommerce/WooSubscriptionStartedTrigger.php:56
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:56
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:56
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:56
 msgid "Select for which subscription products this automation will run"
 msgstr ""
@@ -3114,6 +3128,7 @@ msgstr "Sequenzen auswählen"
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:79
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:48
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:50
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:79
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:79
 #: app/Services/Integrations/PMPro/PMProPMProMembershipTrigger.php:48
 #: app/Services/Integrations/PMPro/PMProPMProExpiryLevelTrigger.php:48
@@ -3167,7 +3182,7 @@ msgstr "Schlüsselwort auswählen"
 #: app/Services/Integrations/LearnDash/LdInit.php:164
 #: app/Services/Integrations/CRM/TagAppliedTrigger.php:52
 #: app/Services/Integrations/CRM/RemoveFromTagTrigger.php:53
-#: app/Services/Integrations/BuddyPress/Group.php:35
+#: app/Services/Integrations/BuddyPress/Group.php:40
 #: app/Services/Integrations/BuddyPress/BBMemberType.php:60
 #: app/Services/Integrations/Edd/EddMetaBoxes.php:53
 #: app/Services/Integrations/Edd/EddMetaBoxes.php:105
@@ -3212,7 +3227,7 @@ msgstr "Wählen Sie aus, welche Sequenz diesem Kontakt zugewiesen wird"
 msgid "Select which sequences will be removed from this contact"
 msgstr "Wählen Sie aus, welche Sequenzen von diesem Kontakt entfernt werden"
 
-#: app/Services/Integrations/BuddyPress/Group.php:40
+#: app/Services/Integrations/BuddyPress/Group.php:46
 #: app/Services/Integrations/BuddyPress/BBMemberType.php:66
 msgid "selected"
 msgstr "ausgewählt"
@@ -3261,7 +3276,7 @@ msgstr "Ausgewählter Smart Link wurde gelöscht"
 msgid "Selected subscribers has been successfully removed from this sequence"
 msgstr "Ausgewählte Abonnenten wurden erfolgreich aus dieser Sequenz entfernt"
 
-#: app/Services/Integrations/BuddyPress/Group.php:44
+#: app/Services/Integrations/BuddyPress/Group.php:50
 msgid "Selected tags will be added to the member on joining"
 msgstr "Ausgewählte Tags werden dem Mitglied beim Beitritt hinzugefügt"
 
@@ -3789,6 +3804,7 @@ msgstr "Zielprodukt"
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalFailedTrigger.php:55
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:79
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:82
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:55
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:55
 #: app/Services/Integrations/SureCart/SureCartPaymentSuccessBenchmark.php:54
 #: app/Services/Integrations/SureCart/SureCartPaymentRefundTrigger.php:85
@@ -3814,7 +3830,7 @@ msgstr ""
 msgid "Templates has been successfully imported"
 msgstr ""
 
-#: app/Services/PluginManager/LicenseManager.php:111
+#: app/Services/PluginManager/LicenseManager.php:110
 #, php-format
 msgid "The %s license needs to be activated. %sActivate Now%s"
 msgstr "Die %s Lizenz muss aktiviert werden. %sJetzt aktivieren%s"
@@ -3826,7 +3842,7 @@ msgstr ""
 "Die in der JSON-Datei definierte Blockierungsaktion ist auf Ihrer Seite "
 "nicht verfügbar."
 
-#: app/Services/PluginManager/LicenseManager.php:343
+#: app/Services/PluginManager/LicenseManager.php:342
 msgid ""
 "The given license key is not valid. Please verify that your license is "
 "correct. You may login to wpmanageninja.com account and get your valid "
@@ -3887,6 +3903,10 @@ msgstr ""
 msgid ""
 "This Automation will start when a recurring payment received  for a "
 "subscription"
+msgstr ""
+
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:72
+msgid "This Automation will start when a subscription expires"
 msgstr ""
 
 #: app/Services/Integrations/WooCommerce/WooSubscriptionStartedTrigger.php:72
@@ -4181,6 +4201,10 @@ msgstr ""
 
 #: app/Services/Integrations/LearnDash/CourseLeaveTrigger.php:43
 msgid "This Funnel will start when a student is leave from a course"
+msgstr ""
+
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:27
+msgid "This funnel will start when a subscription expires"
 msgstr ""
 
 #: app/Services/Integrations/MemberPress/SubscriptionExpiredTrigger.php:40
@@ -4689,7 +4713,7 @@ msgstr "Benutzer-Rolle"
 msgid "Valid License"
 msgstr "Gültige Lizenz"
 
-#: app/Services/PluginManager/LicenseManager.php:52
+#: app/Services/PluginManager/LicenseManager.php:51
 msgid "View FluentCRM documentation"
 msgstr "Sehen Sie sich die FluentCRM-Dokumentation an"
 
@@ -4769,7 +4793,7 @@ msgstr "Innerhalb"
 msgid "Woo Current Order"
 msgstr "Woo Aktuelle Bestellung"
 
-#: app/Services/Integrations/WooCommerce/WooInit.php:280
+#: app/Services/Integrations/WooCommerce/WooInit.php:281
 msgid "Woo Subscriptions (%d)"
 msgstr ""
 
@@ -4786,6 +4810,7 @@ msgstr ""
 #: app/Services/Integrations/WooCommerce/WooOrderRefundedTrigger.php:23
 #: app/Services/Integrations/WooCommerce/WooOrderSuccessTrigger.php:25
 #: app/Services/Integrations/WooCommerce/CreateCouponAction.php:21
+#: app/Services/Integrations/WooCommerce/WooSubscriptionExpiredTrigger.php:24
 #: app/Services/Integrations/WooCommerce/WooSubscriptionRenewalPaymentTrigger.php:24
 msgid "WooCommerce"
 msgstr "WooCommerce"

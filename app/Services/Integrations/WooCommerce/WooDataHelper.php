@@ -135,6 +135,7 @@ class WooDataHelper
         if (!$productIds) {
             return [];
         }
+
         $allCategories = fluentCrmDb()->table('term_taxonomy')
             ->select(['term_taxonomy_id'])
             ->where('taxonomy', 'product_cat')
@@ -149,8 +150,9 @@ class WooDataHelper
         if (!$allCategoryIds) {
             return [];
         }
-
+        
         $relationships = fluentCrmDb()->table('term_relationships')
+            ->select(['term_taxonomy_id'])
             ->whereIn('object_id', $productIds)
             ->whereIn('term_taxonomy_id', $allCategoryIds)
             ->get();

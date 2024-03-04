@@ -15,20 +15,42 @@ class EmailScheduleHandler
 
     public function handle()
     {
+
+        $lastRun = get_option('_fc_last_sequence_run', 0);
+        if ($lastRun && (time() - $lastRun) < 60) {
+            return;
+        }
+
+        update_option('_fc_last_sequence_run', time(), 'no');
+
         $startTime = time();
         $processTrackers = SequenceTracker::ofNextTrackers()->limit(200)->get();
 
         $sequenceModel = new Sequence();
 
         foreach ($processTrackers as $tracker) {
+            if (time() - $startTime > 50) {
+                return;
+            }
+
             $nextItems = $this->getNextItems($tracker);
             if (!empty($nextItems['currents'])) {
                 $subscriber = $this->getSubscriber($tracker->subscriber_id);
+
+                if (!$subscriber) {
+                    $tracker->status = 'completed';
+                    $tracker->save();
+                    continue;
+                } else if ($subscriber->status != 'subscribed') {
+                    $tracker->status = 'cancelled';
+                    $tracker->save();
+                    continue;
+                }
+                
                 $sequenceModel->attachEmails([$subscriber], $nextItems['currents'], $nextItems['next'], $tracker);
             } else {
                 $tracker->status = 'completed';
                 $tracker->save();
-
                 do_action('fluentcrm_email_sequence_completed', $tracker->subscriber_id, $tracker->campaign_id);
             }
         }

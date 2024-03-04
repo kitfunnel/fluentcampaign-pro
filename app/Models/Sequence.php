@@ -143,12 +143,23 @@ class Sequence extends Model
                 continue;
             }
 
+            $trackerData = [];
+
+            $notes = [];
+
             foreach ($scheduledEmails as $scheduledEmail) {
                 $sequenceEmailId = $scheduledEmail['campaign_id'];
                 $urls = [];
                 if (!empty($campaignUrl[$sequenceEmailId])) {
                     $urls = $campaignUrl[$sequenceEmailId];
                 }
+
+                $notes[] = [
+                    'email'        => $scheduledEmail['email_subject'],
+                    'campaign_id'  => $sequenceEmailId,
+                    'scheduled_at' => $scheduledEmail['scheduled_at'],
+                    'time' => current_time('mysql')
+                ];
 
                 $emailBody = apply_filters('fluent_crm/parse_campaign_email_text', $scheduledEmail['email_body'], $subscriber);
 
@@ -186,21 +197,36 @@ class Sequence extends Model
                     'last_executed_time'  => current_time('mysql'),
                     'next_execution_time' => ($nextSequence) ? date('Y-m-d H:i:s', strtotime($scheduledEmail['scheduled_at']) + $nextSequence->delay - $delay) : NULL
                 ];
+            }
+
+
+            if ($trackerData) {
+
+                if (!$tracker) {
+                    $tracker = SequenceTracker::where('subscriber_id', $subscriber->id)
+                        ->where('campaign_id', $trackerData['campaign_id'])
+                        ->first();
+                }
 
                 if ($tracker) {
+                    if ($tracker->notes) {
+                        $notes = array_merge($tracker->notes, $notes);
+                    }
+
+                    $trackerData['notes'] = maybe_serialize($notes);
+
                     SequenceTracker::where('id', $tracker->id)
                         ->update($trackerData);
                 } else {
-                    SequenceTracker::updateOrCreate([
-                        'subscriber_id' => $subscriber->id,
-                        'campaign_id'   => $parentCampaignId
-                    ], $trackerData);
+                    $trackerData['notes'] = $notes;
+                    SequenceTracker::create($trackerData);
                 }
 
                 if ($trackerData['status'] == 'completed') {
-                    do_action('fluentcrm_email_sequence_completed', $subscriber->id, $parentCampaignId);
+                    do_action('fluentcrm_email_sequence_completed', $subscriber->id, $trackerData['campaign_id']);
                 }
             }
+
         }
 
         return $insertIds;

@@ -10,7 +10,9 @@ class LicenseController extends Controller
 {
     public function getStatus(Request $request, LicenseManager $licenseManager)
     {
-        $licenseManager->verifyRemoteLicense(true);
+      //  $licenseManager->verifyRemoteLicense(true);
+        $licenseManager->verifyRemoteLicense(false);
+
 
         $data = $licenseManager->getLicenseDetails();
 
